@@ -9,6 +9,9 @@
     "Rijk van Zanten <rijkvanzanten@me.com> (rijks.website)",
     "Lars Schuitema <info@larsschuitema.nl> (larsschuitema.nl)"
   ],
+  "scripts": {
+    "build": "gulp build"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/rijkvanzanten/freshheroes-node/issues"
@@ -27,6 +30,11 @@
     "space": true
   },
   "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-cssnext": "^1.0.1",
+    "gulp-nodemon": "^2.2.1",
     "stylelint": "^7.10.1",
     "stylelint-config-standard": "^16.0.0",
     "xo": "^0.18.1"
