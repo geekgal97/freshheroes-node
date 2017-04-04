@@ -1,5 +1,4 @@
 const gulp = require('gulp');
-const cssnano = require('gulp-cssnano');
 const browserify = require('browserify');
 const tap = require('gulp-tap');
 const buffer = require('gulp-buffer');
@@ -9,12 +8,22 @@ const browserSync = require('browser-sync');
 const nodemon = require('gulp-nodemon');
 const imagemin = require('gulp-imagemin');
 const postcss = require('gulp-postcss');
+const cssnano = require('cssnano');
 const cssnext = require('postcss-cssnext');
 
 gulp.task('build:css', () => {
   gulp.src('src/css/*.css')
-    .pipe(postcss([cssnext()]))
-    .pipe(cssnano())
+    .pipe(postcss([
+      cssnext({
+        browsers: 'last 2 versions',
+        features: {
+          customProperties: true
+        }
+      }),
+      cssnano({
+        autoprefixer: false
+      })
+    ]))
     .pipe(gulp.dest('public'));
 });
 
