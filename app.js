@@ -19,11 +19,9 @@ express()
   .set('view engine', 'ejs')
   .set('views', path.join(__dirname, 'views'))
   .get('/', home)
+  .get('/inloggen', getLogin)
+  .post('/inloggen', postLogin)
   .listen(port, onListening);
-
-function home(req, res) {
-  res.render('index');
-}
 
 function onerror(err) {
   if (err) {
@@ -33,4 +31,17 @@ function onerror(err) {
 
 function onListening() {
   console.log(`Server listening at port ${port}`);
+}
+
+function home(req, res) {
+  res.render('index');
+}
+
+function getLogin(req, res) {
+  res.render('login');
+}
+
+function postLogin(req, res) {
+  console.log(req.body);
+  res.send('hi');
 }
