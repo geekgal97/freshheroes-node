@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000;
 
 express()
   .use(compression())
+  .use(express.static('public'))
   .set('view engine', 'ejs')
   .set('views', path.join(__dirname, 'views'))
   .get('/', home)
