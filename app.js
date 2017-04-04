@@ -3,6 +3,9 @@ const express = require('express');
 const compression = require('compression');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const session = require('express-session');
+const randomstring = require('randomstring');
+const User = require('./models/user');
 
 const port = process.env.PORT || 3000;
 
@@ -14,6 +17,11 @@ express()
     index: false,
     maxage: 604800000
   }))
+  .use(session({
+    secret: randomstring.generate(),
+    resave: false,
+    saveUninitialized: true
+  }))
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({extended: false}))
   .set('view engine', 'ejs')
@@ -21,6 +29,7 @@ express()
   .get('/', home)
   .get('/inloggen', getLogin)
   .post('/inloggen', postLogin)
+  .get('/dashboard/stages', authenticate, getCompanyDashboard)
   .listen(port, onListening);
 
 function onerror(err) {
@@ -33,6 +42,18 @@ function onListening() {
   console.log(`Server listening at port ${port}`);
 }
 
+function authenticate(req, res, next) {
+  if (req.session.user) {
+    next();
+  }
+
+  res.redirect('/login');
+}
+
+function getCompanyDashboard(req, res) {
+  res.render('dashboard-company');
+}
+
 function home(req, res) {
   res.render('index');
 }
@@ -42,6 +63,40 @@ function getLogin(req, res) {
 }
 
 function postLogin(req, res) {
-  console.log(req.body);
-  res.send('hi');
+  if (!req.body.username && !req.body.password) {
+    return res.redirect('/inloggen');
+  }
+
+  User
+    .findOne({username: req.body.username})
+    .select('+password -_id')
+    .exec(onexec);
+
+  function onexec(err, user) {
+    if (err) {
+      console.log(err);
+      return res.status(500).end();
+    }
+
+    if (!user) {
+      return res.redirect('/inloggen');
+    }
+
+    user.comparePassword(req.body.password, oncompare);
+
+    function oncompare(err, isMatch) {
+      if (err) {
+        console.log(err);
+        return res.status(500).end();
+      }
+
+      if (isMatch) {
+        user.password = null;
+        req.session.user = user;
+        return res.redirect('/dashboard/stages');
+      }
+
+      return res.redirect('/login');
+    }
+  }
 }
