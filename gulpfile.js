@@ -8,6 +8,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const esmangle = require('gulp-esmangle');
 const browserSync = require('browser-sync');
 const nodemon = require('gulp-nodemon');
+const imagemin = require('gulp-imagemin');
 
 gulp.task('build:css', () => {
   gulp.src('src/css/*.css')
@@ -28,6 +29,12 @@ gulp.task('build:js', () => {
     .pipe(esmangle())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('public'));
+});
+
+gulp.task('build:images', () => {
+  gulp.src('src/images/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('public/images'));
 });
 
 gulp.task('nodemon', done => {
@@ -60,5 +67,6 @@ gulp.task('build', ['build:js', 'build:css']);
 
 gulp.task('watch', ['browser-sync'], () => {
   gulp.watch('src/css/**/*.css', ['build:css']);
+  gulp.watch('src/images/*', ['build:images']);
   gulp.watch('src/js/**/*.js', ['build:js']);
 });
