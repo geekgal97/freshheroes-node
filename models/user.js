@@ -14,7 +14,17 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true,
     select: false
+  },
+  firstname: String,
+  lastname: String,
+  type: String,
+  birthday: Date,
+  admin: {
+    type: Boolean,
+    default: false
   }
+}, {
+  timestamps: true
 });
 
 // Hash password on save
