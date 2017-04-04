@@ -99,7 +99,8 @@ nav ul a {
 
 nav ul a:hover,
 nav ul a:focus {
-  color: #292929;
+  background: #999;
+  color: #fff;
 
   @media screen and (min-width: 40em) {
     background: none;
