@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <% include partials/meta %>
+</head>
+<body>
+  <% include components/nav %>
+  <div>
+    <main>
+      <h1>Inloggen</h1>
+      <form method="post" action="/">
+        <fieldset>
+          <label for="email">E-mail</label>
+          <input id="email" type="email" name="email" />
+
+          <label for="password">Wachtwoord</label>
+          <input id="password" type="password" name="password" />
+        </fieldset>
+        <button type="submit"></button>
+      </form>
+    </main>
+    <aside>
+      <p>Heb je nog geen account?</p>
+      <a href="/aanmelden/student">Ik ben een student</a>
+      <a href="/aanmelden/bedrijf">Ik ben een bedrijf</a>
+    </aside>
+  </div>
+</body>
+</html>
