@@ -1,5 +1,4 @@
 const gulp = require('gulp');
-const cssnext = require('gulp-cssnext');
 const cssnano = require('gulp-cssnano');
 const browserify = require('browserify');
 const tap = require('gulp-tap');
@@ -9,10 +8,12 @@ const esmangle = require('gulp-esmangle');
 const browserSync = require('browser-sync');
 const nodemon = require('gulp-nodemon');
 const imagemin = require('gulp-imagemin');
+const postcss = require('gulp-postcss');
+const cssnext = require('postcss-cssnext');
 
 gulp.task('build:css', () => {
   gulp.src('src/css/*.css')
-    .pipe(cssnext())
+    .pipe(postcss([cssnext()]))
     .pipe(cssnano())
     .pipe(gulp.dest('public'));
 });
