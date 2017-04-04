@@ -73,7 +73,7 @@ gulp.task('browser-sync', ['nodemon'], () => {
   });
 });
 
-gulp.task('build', ['build:js', 'build:css']);
+gulp.task('build', ['build:js', 'build:css', 'build:images']);
 
 gulp.task('watch', ['browser-sync'], () => {
   gulp.watch('src/css/**/*.css', ['build:css']);
