@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Roboto';
+  src:
+    url('/static/lobster-regular-webfont.woff2') format('woff2'),
+    url('/static/lobster-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: inherit;
+}
+
+/* general */
+body {
+  font: 100% system-ui;
+  margin: 0;
+}
+
+h1 {
+  line-height: 1.1;
+}
+
+p {
+  line-height: 1.5;
+}
