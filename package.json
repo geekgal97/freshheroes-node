@@ -12,7 +12,8 @@
   "scripts": {
     "build": "gulp build",
     "dev": "gulp watch",
-    "start": "gulp build && node app.js"
+    "start": "gulp build && node app.js",
+    "postinstall": "npm run build && node install.js"
   },
   "license": "MIT",
   "bugs": {
