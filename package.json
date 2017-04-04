@@ -1,0 +1,21 @@
+{
+  "name": "freshheroes-node",
+  "version": "1.0.0",
+  "description": "Node Port of freshheroes.com",
+  "main": "app.js",
+  "repository": "rijkvanzanten/freshheroes-node",
+  "author": [
+    "Rijk van Zanten <rijkvanzanten@me.com> (rijks.website)",
+    "Lars Schuitema <info@larsschuitema.nl> (larsschuitema.nl)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rijkvanzanten/freshheroes-node/issues"
+  },
+  "homepage": "https://github.com/rijkvanzanten/freshheroes-node#readme",
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.3"
+  }
+}
