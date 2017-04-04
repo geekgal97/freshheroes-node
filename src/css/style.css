@@ -1,0 +1,93 @@
+@font-face {
+  font-family: 'Roboto';
+  src:
+    url('/static/lobster-regular-webfont.woff2') format('woff2'),
+    url('/static/lobster-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: inherit;
+}
+
+/* general */
+body {
+  font: 100% system-ui;
+  margin: 0;
+}
+
+h1 {
+  line-height: 1.1;
+}
+
+p {
+  line-height: 1.5;
+}
+
+a {
+  transition: all 0.2s ease-in-out;
+}
+
+/* footer */
+footer {
+  background: #f6f6f6;
+  border-top: 1px #e6e6e6 solid;
+  color: #999;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 40em) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+footer p {
+  border-bottom: 1px #ebebeb solid;
+  color: #ccc;
+  line-height: 0;
+  margin: 0;
+
+  @media screen and (min-width: 40em) {
+    border-bottom: 0;
+  }
+}
+
+footer ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+footer ul:first-of-type {
+  @media screen and (min-width: 40em) {
+    flex: 1;
+  }
+}
+
+footer li {
+  @media screen and (min-width: 40em) {
+    float: left;
+  }
+}
+
+footer a {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #37c9a2;
+}
+
+footer a:focus {
+  background: #999;
+  color: #fff;
+  outline: none;
+}
+
+footer a, footer p {
+  padding: 1em;
+}

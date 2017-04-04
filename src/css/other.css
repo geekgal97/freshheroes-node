@@ -1,0 +1,106 @@
+/* header */
+:root {
+  --purple: #3edfb4;
+}
+
+header > div {
+  background-color: var(--purple);
+  background-image: url('../images/header-pattern.svg');
+  background-size: 300px 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header > div img {
+  width: 50%;
+  height: 50%;
+  padding: 7em;
+}
+
+nav {
+  background-color: var(--purple);
+  background-image: url('../images/header-pattern.svg');
+  background-size: 300px 300px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 100%;
+
+  @media screen and (min-width: 40em) {
+    align-items: center;
+    flex-direction: row;
+  }
+}
+
+nav a {
+  color: inherit;
+  display: block;
+  padding: 1em;
+  text-decoration: none;
+}
+
+nav div {
+  padding: 1em 0;
+  order: -1;
+  text-align: center;
+
+  @media screen and (min-width: 40em) {
+    display: flex;
+    order: 1;
+    text-align: inherit;
+  }
+}
+
+nav div a {
+  background: #6c23b0;
+  border-radius: 2px;
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+nav div a:hover,
+nav div a:focus {
+  background: #521b85;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+
+  @media screen and (min-width: 40em) {
+    flex: 1;
+    text-align: inherit;
+  }
+}
+
+nav li {
+  border-bottom: 1px #ebebeb solid;
+
+  @media screen and (min-width: 40em) {
+    border-bottom: 0;
+    float: left;
+  }
+}
+
+nav ul a {
+  background: white;
+  color: #999;
+
+  @media screen and (min-width: 40em) {
+    background: none;
+    color: #fff;
+  }
+}
+
+nav ul a:hover,
+nav ul a:focus {
+  color: #292929;
+
+  @media screen and (min-width: 40em) {
+    background: none;
+    color: #21755f;
+  }
+}
