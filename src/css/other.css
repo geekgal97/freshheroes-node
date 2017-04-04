@@ -13,6 +13,7 @@ header > div {
 }
 
 header > div img {
+  box-sizing: border-box;
   width: 50%;
   height: 50%;
   padding: 7em;
