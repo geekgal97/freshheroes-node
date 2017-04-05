@@ -168,12 +168,12 @@ function postLogin(req, res) {
 
 function getPageStudents(req, res) {
   res.render('students', {
-    title: 'Students'
+    title: 'Studenten'
   });
 }
 
 function getPageCompanies(req, res) {
   res.render('companies', {
-    title: 'Companies'
+    title: 'Bedrijven'
   });
 }
