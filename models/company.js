@@ -9,6 +9,7 @@ const CompanySchema = mongoose.Schema({
   intro: String,
   description: String,
   type: String,
+  amountOfEmployees: Number,
   status: String,
   website: String,
   social: {
