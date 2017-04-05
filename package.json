@@ -13,6 +13,7 @@
     "build": "gulp build",
     "dev": "gulp watch",
     "start": "gulp build && node app.js",
+    "reset": "node install-clear-database && node install.js",
     "postinstall": "npm run build && node install.js"
   },
   "license": "MIT",
