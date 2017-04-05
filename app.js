@@ -107,7 +107,13 @@ function home(req, res) {
       res.status(500).end();
     }
 
-    res.render('index', {html: toString(render(results))});
+    const filterOptions = Object.assign({
+      type: [], size: null, location: null, q: null, categories: []
+    }, req.query);
+
+    console.log(filterOptions);
+
+    res.render('index', {html: toString(render(results)), filterOptions});
   }
 
   function escapeRegex(text) {
