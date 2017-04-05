@@ -1,11 +1,19 @@
 const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const compression = require('compression');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const randomstring = require('randomstring');
-const User = require('./models/user');
+const toString = require('vdom-to-html');
+const render = require('./lib/render');
+
+// Register all models
+const models = path.join(__dirname, '/models');
+fs.readdirSync(models)
+  .filter(file => ~file.search(/^[^\.].*\.js$/))
+  .forEach(file => require(path.join(models, file)));
 
 const port = process.env.PORT || 3000;
 
@@ -55,7 +63,62 @@ function getCompanyDashboard(req, res) {
 }
 
 function home(req, res) {
-  res.render('index');
+  const query = mongoose.model('vacancy').find();
+
+  const {type, size, location, q, categories} = req.query;
+
+  if (type) {
+    query.where('companyType').in(type);
+  }
+
+  if (size) {
+    switch (size) {
+      case 'small':
+        query.where('companyEmployees').lte(20);
+        break;
+      case 'medium':
+        query.where('companyEmployees').gte(20).lte(100);
+        break;
+      case 'large':
+        query.where('companyEmployees').gte(100);
+        break;
+      default:
+    }
+  }
+
+  if (location) {
+    query.where('address.city').equals(location);
+  }
+
+  if (q) {
+    const regex = new RegExp(escapeRegex(q), 'gi');
+    query.or([{name: regex}, {description: regex}]);
+  }
+
+  if (categories) {
+    query.where('category').in(categories);
+  }
+
+  query.exec(onexec);
+
+  function onexec(err, results) {
+    if (err) {
+      console.error(err);
+      res.status(500).end();
+    }
+
+    const filterOptions = Object.assign({
+      type: [], size: null, location: null, q: null, categories: []
+    }, req.query);
+
+    console.log(filterOptions);
+
+    res.render('index', {html: toString(render(results)), filterOptions});
+  }
+
+  function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+  }
 }
 
 function getLogin(req, res) {
@@ -67,7 +130,7 @@ function postLogin(req, res) {
     return res.redirect('/inloggen');
   }
 
-  User
+  mongoose.model('user')
     .findOne({username: req.body.username})
     .select('+password -_id')
     .exec(onexec);

@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
 
 const VacancySchema = mongoose.Schema({
-  companyId: {
+  company: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'company'
   },
+  companyName: String,
+  companyType: String,
+  companyEmployees: Number,
   category: String,
   address: {
     street: String,
@@ -12,7 +15,8 @@ const VacancySchema = mongoose.Schema({
     city: String
   },
   deadline: Date,
-  name: String
+  name: String,
+  description: String
 }, {
   timestamps: true
 });

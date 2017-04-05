@@ -71,7 +71,7 @@ const lifely = new Company({
     twitter: 'twitter.com/lifelynl',
     linkedin: 'linkedin.com/lifely'
   },
-  userId: pim._id
+  user: pim._id
 });
 
 const rabobank = new Company({
@@ -87,7 +87,7 @@ const rabobank = new Company({
     twitter: 'twitter.com/rabobank',
     linkedin: 'linkedin.com/rabobank'
   },
-  userId: raboUser._id
+  user: raboUser._id
 });
 
 const redbull = new Company({
@@ -103,7 +103,7 @@ const redbull = new Company({
     twitter: 'twitter.com/redbull',
     linkedin: 'linkedin.com/redbull'
   },
-  userId: redbullUser._id
+  user: redbullUser._id
 });
 
 const ddd = new Company({
@@ -118,13 +118,16 @@ const ddd = new Company({
     twitter: 'twitter.com/redbull',
     linkedin: 'linkedin.com/redbull'
   },
-  userId: dddUser._id
+  user: dddUser._id
 });
 
 // Vacancies
 // -----------------------------------------------------------------------------
 const vacancy1 = new Vacancy({
-  companyId: lifely._id,
+  company: lifely._id,
+  companyName: lifely.name,
+  companyType: lifely.type,
+  companyEmployees: lifely.amountOfEmployees,
   category: 'development',
   address: {
     street: 'Zekeringstraat 23B',
@@ -132,11 +135,15 @@ const vacancy1 = new Vacancy({
     city: 'Amsterdam'
   },
   deadline: getDate(5),
-  name: 'Developer (with Report)'
+  name: 'Developer (with Report)',
+  description: faker.lorem.paragraph(5)
 });
 
 const vacancy2 = new Vacancy({
-  companyId: lifely._id,
+  company: ddd._id,
+  companyName: ddd.name,
+  companyType: ddd.type,
+  companyEmployees: ddd.amountOfEmployees,
   category: 'development',
   address: {
     street: 'Zekeringstraat 23B',
@@ -144,11 +151,14 @@ const vacancy2 = new Vacancy({
     city: 'Amsterdam'
   },
   deadline: getDate(-3),
-  name: 'Developer (expired)'
+  name: 'Developer (expired)',
+  description: faker.lorem.paragraph(5)
 });
 
 const vacancy3 = new Vacancy({
-  companyId: lifely._id,
+  company: lifely._id,
+  companyName: lifely.name,
+  companyType: lifely.type,
   category: 'development',
   address: {
     street: 'Zekeringstraat 23B',
@@ -156,11 +166,15 @@ const vacancy3 = new Vacancy({
     city: 'Amsterdam'
   },
   deadline: getDate(-3),
-  name: 'Developer (with Report and Expired)'
+  name: 'Developer (with Report and Expired)',
+  description: faker.lorem.paragraph(5)
 });
 
 const vacancy4 = new Vacancy({
-  companyId: lifely._id,
+  company: lifely._id,
+  companyName: lifely.name,
+  companyType: lifely.type,
+  companyEmployees: lifely.amountOfEmployees,
   category: 'development',
   address: {
     street: 'Zekeringstraat 23B',
@@ -168,11 +182,15 @@ const vacancy4 = new Vacancy({
     city: 'Amsterdam'
   },
   deadline: getDate(-3),
-  name: 'Developer (with Report and Expired)'
+  name: 'Developer (with Report and Expired)',
+  description: faker.lorem.paragraph(5)
 });
 
 const vacancy5 = new Vacancy({
-  companyId: rabobank._id,
+  company: rabobank._id,
+  companyName: rabobank.name,
+  companyType: rabobank.type,
+  companyEmployees: rabobank.amountOfEmployees,
   category: 'design',
   address: {
     street: 'Admiraal de Ruijterweg 21',
@@ -180,7 +198,8 @@ const vacancy5 = new Vacancy({
     city: 'Amsterdam'
   },
   deadline: getDate(-3),
-  name: 'Developer (with Report and Expired)'
+  name: 'Developer (with Report and Expired)',
+  description: faker.lorem.paragraph(5)
 });
 
 Promise.all([

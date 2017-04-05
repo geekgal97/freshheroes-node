@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const CompanySchema = mongoose.Schema({
-  userId: {
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user'
   },
@@ -9,6 +9,7 @@ const CompanySchema = mongoose.Schema({
   intro: String,
   description: String,
   type: String,
+  amountOfEmployees: Number,
   status: String,
   website: String,
   social: {
