@@ -39,6 +39,8 @@ body {
 h1 {
   color: #333;
   font-size: 3em;
+  font-family: 'Abril Fatface', system-ui;
+  font-weight: normal;
   line-height: 1.1;
 }
 
