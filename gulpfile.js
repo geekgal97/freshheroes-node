@@ -10,6 +10,7 @@ const imagemin = require('gulp-imagemin');
 const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 const cssnext = require('postcss-cssnext');
+const jsonminify = require('gulp-jsonminify');
 
 gulp.task('build:css', () => {
   gulp.src('src/css/*.css')
@@ -25,6 +26,12 @@ gulp.task('build:css', () => {
       })
     ]))
     .pipe(gulp.dest('public'));
+});
+
+gulp.task('build:json', () => {
+  gulp.src('src/*.json')
+    .pipe(jsonminify())
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('build:js', () => {
@@ -78,11 +85,13 @@ gulp.task('browser-sync', ['nodemon'], () => {
   });
 });
 
-gulp.task('build', ['build:js', 'build:css', 'build:images', 'build:fonts']);
+gulp.task('build', ['build:js', 'build:css', 'build:images', 'build:fonts', 'build:json']);
 
 gulp.task('watch', ['browser-sync'], () => {
   gulp.watch('src/css/**/*.css', ['build:css']);
   gulp.watch('src/images/*', ['build:images']);
   gulp.watch('src/fonts/*', ['build:fonts']);
   gulp.watch(['lib/**/*.js', 'src/js/**/*.js'], ['build:js']);
+  gulp.watch('src/js/**/*.js', ['build:js']);
+  gulp.watch('src/**/*.json', ['build:json']);
 });
