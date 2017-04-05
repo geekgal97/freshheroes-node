@@ -42,6 +42,7 @@
     "browser-sync": "^2.18.8",
     "browserify": "^14.1.0",
     "cssnano": "^3.10.0",
+    "faker": "^4.1.0",
     "gulp": "^3.9.1",
     "gulp-buffer": "0.0.2",
     "gulp-esmangle": "^1.1.1",
