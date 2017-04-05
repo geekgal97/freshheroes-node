@@ -10,6 +10,7 @@ const render = require('../../lib/render');
 
 (function () {
   const initialData = __results__;
+  const form = document.querySelector('form');
 
   let tree = render(initialData);
   let rootNode = createElement(tree);
@@ -17,8 +18,9 @@ const render = require('../../lib/render');
 
   document.querySelector('button[type=submit]').remove();
 
-  document.querySelector('form').addEventListener('change', throttle(200, fetchData));
-  document.querySelector('form').addEventListener('input', throttle(200, fetchData));
+  form.addEventListener('change', throttle(200, fetchData));
+  form.addEventListener('input', throttle(200, fetchData));
+  form.addEventListener('submit', e => e.preventDefault());
 
   function update(data) {
     const newTree = render(data);
@@ -28,11 +30,10 @@ const render = require('../../lib/render');
   }
 
   function fetchData() {
-    console.log(serialize(document.querySelector('form')));
     superagent
       .get('/')
       .set('content-type', 'application/json')
-      .query(serialize(document.querySelector('form')))
+      .query(serialize(form))
       .end((err, res) => {
         if (err) {
           console.error(err);
