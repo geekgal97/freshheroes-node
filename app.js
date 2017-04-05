@@ -39,7 +39,7 @@ express()
   .post('/inloggen', postLogin)
   .get('/dashboard/stages', authenticate, getCompanyDashboard)
   .get('/studenten', getPageStudents)
-  .get('/companies', getPageCompanies)
+  .get('/bedrijven', getPageCompanies)
   .listen(port, onListening);
 
 function onerror(err) {
@@ -168,12 +168,12 @@ function postLogin(req, res) {
 
 function getPageStudents(req, res) {
   res.render('students', {
-    title: 'Students'
+    title: 'Studenten'
   });
 }
 
 function getPageCompanies(req, res) {
   res.render('companies', {
-    title: 'Companies'
+    title: 'Bedrijven'
   });
 }
