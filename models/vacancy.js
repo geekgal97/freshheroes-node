@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const VacancySchema = mongoose.Schema({
-  companyId: {
+  company: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'company'
   },

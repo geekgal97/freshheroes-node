@@ -71,7 +71,7 @@ const lifely = new Company({
     twitter: 'twitter.com/lifelynl',
     linkedin: 'linkedin.com/lifely'
   },
-  userId: pim._id
+  user: pim._id
 });
 
 const rabobank = new Company({
@@ -87,7 +87,7 @@ const rabobank = new Company({
     twitter: 'twitter.com/rabobank',
     linkedin: 'linkedin.com/rabobank'
   },
-  userId: raboUser._id
+  user: raboUser._id
 });
 
 const redbull = new Company({
@@ -103,7 +103,7 @@ const redbull = new Company({
     twitter: 'twitter.com/redbull',
     linkedin: 'linkedin.com/redbull'
   },
-  userId: redbullUser._id
+  user: redbullUser._id
 });
 
 const ddd = new Company({
@@ -118,13 +118,13 @@ const ddd = new Company({
     twitter: 'twitter.com/redbull',
     linkedin: 'linkedin.com/redbull'
   },
-  userId: dddUser._id
+  user: dddUser._id
 });
 
 // Vacancies
 // -----------------------------------------------------------------------------
 const vacancy1 = new Vacancy({
-  companyId: lifely._id,
+  company: lifely._id,
   category: 'development',
   address: {
     street: 'Zekeringstraat 23B',
@@ -136,7 +136,7 @@ const vacancy1 = new Vacancy({
 });
 
 const vacancy2 = new Vacancy({
-  companyId: lifely._id,
+  company: lifely._id,
   category: 'development',
   address: {
     street: 'Zekeringstraat 23B',
@@ -148,7 +148,7 @@ const vacancy2 = new Vacancy({
 });
 
 const vacancy3 = new Vacancy({
-  companyId: lifely._id,
+  company: lifely._id,
   category: 'development',
   address: {
     street: 'Zekeringstraat 23B',
@@ -160,7 +160,7 @@ const vacancy3 = new Vacancy({
 });
 
 const vacancy4 = new Vacancy({
-  companyId: lifely._id,
+  company: lifely._id,
   category: 'development',
   address: {
     street: 'Zekeringstraat 23B',
@@ -172,7 +172,7 @@ const vacancy4 = new Vacancy({
 });
 
 const vacancy5 = new Vacancy({
-  companyId: rabobank._id,
+  company: rabobank._id,
   category: 'design',
   address: {
     street: 'Admiraal de Ruijterweg 21',
