@@ -125,6 +125,9 @@ const ddd = new Company({
 // -----------------------------------------------------------------------------
 const vacancy1 = new Vacancy({
   company: lifely._id,
+  companyName: lifely.name,
+  companyType: lifely.type,
+  companyEmployees: lifely.amountOfEmployees,
   category: 'development',
   address: {
     street: 'Zekeringstraat 23B',
@@ -137,7 +140,10 @@ const vacancy1 = new Vacancy({
 });
 
 const vacancy2 = new Vacancy({
-  company: lifely._id,
+  company: ddd._id,
+  companyName: ddd.name,
+  companyType: ddd.type,
+  companyEmployees: ddd.amountOfEmployees,
   category: 'development',
   address: {
     street: 'Zekeringstraat 23B',
@@ -151,6 +157,8 @@ const vacancy2 = new Vacancy({
 
 const vacancy3 = new Vacancy({
   company: lifely._id,
+  companyName: lifely.name,
+  companyType: lifely.type,
   category: 'development',
   address: {
     street: 'Zekeringstraat 23B',
@@ -164,6 +172,9 @@ const vacancy3 = new Vacancy({
 
 const vacancy4 = new Vacancy({
   company: lifely._id,
+  companyName: lifely.name,
+  companyType: lifely.type,
+  companyEmployees: lifely.amountOfEmployees,
   category: 'development',
   address: {
     street: 'Zekeringstraat 23B',
@@ -177,6 +188,9 @@ const vacancy4 = new Vacancy({
 
 const vacancy5 = new Vacancy({
   company: rabobank._id,
+  companyName: rabobank.name,
+  companyType: rabobank.type,
+  companyEmployees: rabobank.amountOfEmployees,
   category: 'design',
   address: {
     street: 'Admiraal de Ruijterweg 21',
