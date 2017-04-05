@@ -16,6 +16,11 @@
   font-family: inherit;
 }
 
+:focus {
+  border: 1px #6c23b0 solid;
+  outline: none;
+}
+
 /* general */
 body {
   font: 100% system-ui;
