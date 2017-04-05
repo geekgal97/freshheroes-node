@@ -3,7 +3,7 @@
 <head>
   <% include partials/meta %>
 </head>
-<body>
+<body class="">
   <% include partials/header %>
   <main>
     <form action="/" method="get">
@@ -12,42 +12,42 @@
           <li>
             <label>
               <input type="checkbox" name="categories[]" value="development" <%= filterOptions.categories.includes('development') ? 'checked' : false %>/>
-              <p>Development</p>
+              <span>Development</span>
               <p>Frontend, Backend, Mobile, DevOps</p>
             </label>
           </li>
           <li>
             <label>
               <input type="checkbox" name="categories[]" value="design" <%= filterOptions.categories.includes('design') ? 'checked' : false %>/>
-              <p>Design</p>
+              <span>Design</span>
               <p>Interaction, UX, Visual Interface, DTP</p>
             </label>
           </li>
           <li>
             <label>
               <input type="checkbox" name="categories[]" value="motion" <%= filterOptions.categories.includes('motion') ? 'checked' : false %>/>
-              <p>Motion</p>
+              <span>Motion</span>
               <p>Motion Design, Film &amp; TV, (3D-) Animatie</p>
             </label>
           </li>
           <li>
             <label>
               <input type="checkbox" name="categories[]" value="business" <%= filterOptions.categories.includes('business') ? 'checked' : false %>/>
-              <p>Business</p>
+              <span>Business</span>
               <p>Project Management, Strategie, Sales</p>
             </label>
           </li>
           <li>
             <label>
               <input type="checkbox" name="categories[]" value="content" <%= filterOptions.categories.includes('content') ? 'checked' : false %>/>
-              <p>Content</p>
+              <span>Content</span>
               <p>Marketing, Copywriting, Journalistiek</p>
             </label>
           </li>
           <li>
             <label>
               <input type="checkbox" name="categories[]" value="growth" <%= filterOptions.categories.includes('growth') ? 'checked' : false %>/>
-              <p>Growth</p>
+              <span>Growth</span>
               <p>Webanalytics, A/B-test, SEO, SEA</p>
             </label>
           </li>
