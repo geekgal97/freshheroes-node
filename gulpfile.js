@@ -31,7 +31,7 @@ gulp.task('build:css', () => {
 gulp.task('build:json', () => {
   gulp.src('src/*.json')
     .pipe(jsonminify())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('public'));
 });
 
 gulp.task('build:js', () => {
@@ -49,7 +49,7 @@ gulp.task('build:js', () => {
 });
 
 gulp.task('build:images', () => {
-  gulp.src('src/images/*')
+  gulp.src('src/images/**/*')
     .pipe(imagemin())
     .pipe(gulp.dest('public/images'));
 });
