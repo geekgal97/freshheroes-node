@@ -65,7 +65,39 @@ function getCompanyDashboard(req, res) {
 function home(req, res) {
   const query = mongoose.model('vacancy').find();
 
-  query.populate('company');
+  const {type, size, location, q, categories} = req.query;
+
+  if (type) {
+    query.where('companyType').in(type);
+  }
+
+  if (size) {
+    switch (size) {
+      case 'small':
+        query.where('companyEmployees').lte(20);
+        break;
+      case 'medium':
+        query.where('companyEmployees').gte(20).lte(100);
+        break;
+      case 'large':
+        query.where('companyEmployees').gte(100);
+        break;
+      default:
+    }
+  }
+
+  if (location) {
+    query.where('address.city').equals(location);
+  }
+
+  if (q) {
+    const regex = new RegExp(escapeRegex(q), 'gi');
+    query.or([{name: regex}, {description: regex}]);
+  }
+
+  if (categories) {
+    query.where('category').in(categories);
+  }
 
   query.exec(onexec);
 
@@ -76,6 +108,10 @@ function home(req, res) {
     }
 
     res.render('index', {html: toString(render(results))});
+  }
+
+  function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
   }
 }
 
