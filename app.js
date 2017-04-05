@@ -39,7 +39,7 @@ express()
   .post('/inloggen', postLogin)
   .get('/dashboard/stages', authenticate, getCompanyDashboard)
   .get('/studenten', getPageStudents)
-  .get('/companies', getPageCompanies)
+  .get('/bedrijven', getPageCompanies)
   .listen(port, onListening);
 
 function onerror(err) {
