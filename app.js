@@ -99,4 +99,13 @@ function postLogin(req, res) {
       return res.redirect('/login');
     }
   }
+
+function onerror(err) {
+  if (err) {
+    throw err;
+  }
+}
+
+function onListening() {
+  console.log(`Server listening at port ${port}`);
 }
