@@ -10,6 +10,21 @@ $ git clone https://github.com/rijkvanzanten/freshheroes-node.git
 $ npm install
 ```
 
+Install MongoDB
+```bash
+$ brew install mongodb
+```
+
+Make a directory for the database
+```bash
+$ mkdir -p /data/db
+```
+
+Set read and write permissions for directory
+```bash
+$ sudo chown -R `id -u` /data/db
+```
+
 ## Development
 To build the static assets (client side):
 ```bash
