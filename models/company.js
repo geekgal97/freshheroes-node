@@ -20,6 +20,6 @@ const CompanySchema = mongoose.Schema({
   timestamps: true
 });
 
-const CompanyModel = mongoose.model('vacancy', CompanySchema);
+const CompanyModel = mongoose.model('company', CompanySchema);
 
 module.exports = CompanyModel;
