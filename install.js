@@ -132,7 +132,8 @@ const vacancy1 = new Vacancy({
     city: 'Amsterdam'
   },
   deadline: getDate(5),
-  name: 'Developer (with Report)'
+  name: 'Developer (with Report)',
+  description: faker.lorem.paragraph(5)
 });
 
 const vacancy2 = new Vacancy({
@@ -144,7 +145,8 @@ const vacancy2 = new Vacancy({
     city: 'Amsterdam'
   },
   deadline: getDate(-3),
-  name: 'Developer (expired)'
+  name: 'Developer (expired)',
+  description: faker.lorem.paragraph(5)
 });
 
 const vacancy3 = new Vacancy({
@@ -156,7 +158,8 @@ const vacancy3 = new Vacancy({
     city: 'Amsterdam'
   },
   deadline: getDate(-3),
-  name: 'Developer (with Report and Expired)'
+  name: 'Developer (with Report and Expired)',
+  description: faker.lorem.paragraph(5)
 });
 
 const vacancy4 = new Vacancy({
@@ -168,7 +171,8 @@ const vacancy4 = new Vacancy({
     city: 'Amsterdam'
   },
   deadline: getDate(-3),
-  name: 'Developer (with Report and Expired)'
+  name: 'Developer (with Report and Expired)',
+  description: faker.lorem.paragraph(5)
 });
 
 const vacancy5 = new Vacancy({
@@ -180,7 +184,8 @@ const vacancy5 = new Vacancy({
     city: 'Amsterdam'
   },
   deadline: getDate(-3),
-  name: 'Developer (with Report and Expired)'
+  name: 'Developer (with Report and Expired)',
+  description: faker.lorem.paragraph(5)
 });
 
 Promise.all([

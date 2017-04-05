@@ -12,7 +12,8 @@ const VacancySchema = mongoose.Schema({
     city: String
   },
   deadline: Date,
-  name: String
+  name: String,
+  description: String
 }, {
   timestamps: true
 });
