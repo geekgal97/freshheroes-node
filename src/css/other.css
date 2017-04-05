@@ -1,10 +1,10 @@
 /* header */
 :root {
-  --purple: #3edfb4;
+  --primary-green: #3edfb4;
 }
 
 header > div {
-  background-color: var(--purple);
+  background-color: var(--primary-green);
   background-image: url('../images/header-pattern.svg');
   background-size: 300px 300px;
   display: flex;
@@ -19,7 +19,7 @@ header > div img {
 }
 
 nav {
-  background-color: var(--purple);
+  background-color: var(--primary-green);
   background-image: url('../images/header-pattern.svg');
   background-size: 300px 300px;
   color: #fff;
