@@ -7,6 +7,11 @@
   font-style: normal;
 }
 
+:root {
+  --primary-green: #37c9a2;
+  --border-grey: #e6e6e6;
+}
+
 * {
   font-family: inherit;
 }
@@ -28,4 +33,66 @@ h1 {
 
 p {
   line-height: 1.5;
+}
+
+/* footer */
+footer {
+  background: #f6f6f6;
+  border-top: 1px var(--border-grey) solid;
+  color: #999;
+  display: flex;
+  flex-direction: column;
+}
+
+footer p {
+  border-bottom: 1px var(--border-grey) solid;
+  color: #ccc;
+  line-height: 0;
+  margin: 0;
+}
+
+footer ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+footer a {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+
+  &:hover {
+    color: #37c9a2;
+  }
+
+  &:focus {
+    background: #999;
+    color: #fff;
+    outline: none;
+  }
+}
+
+footer a,
+footer p {
+  padding: 1em;
+}
+
+@media screen and (min-width: 40em) {
+  footer {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  footer p {
+    border-bottom: 0;
+  }
+
+  footer ul:first-of-type {
+    flex: 1;
+  }
+
+  footer li {
+    float: left;
+  }
 }

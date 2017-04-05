@@ -3,10 +3,6 @@
   --primary-green: #3edfb4;
 }
 
-header > div {
-  display: none;
-}
-
 nav {
   background-color: var(--primary-green);
   background-image: url('../images/header-pattern.svg');
@@ -22,7 +18,6 @@ nav a {
   display: block;
   padding: 1em;
   text-decoration: none;
-  transition: all 0.2s ease-in-out;
 }
 
 nav div {
