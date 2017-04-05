@@ -38,6 +38,8 @@ express()
   .get('/inloggen', getLogin)
   .post('/inloggen', postLogin)
   .get('/dashboard/stages', authenticate, getCompanyDashboard)
+  .get('/studenten', getPageStudents)
+  .get('/bedrijven', getPageCompanies)
   .listen(port, onListening);
 
 function onerror(err) {
@@ -162,4 +164,16 @@ function postLogin(req, res) {
       return res.redirect('/login');
     }
   }
+}
+
+function getPageStudents(req, res) {
+  res.render('students', {
+    title: 'Studenten'
+  });
+}
+
+function getPageCompanies(req, res) {
+  res.render('companies', {
+    title: 'Bedrijven'
+  });
 }
