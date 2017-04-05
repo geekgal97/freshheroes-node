@@ -28,7 +28,9 @@
     "express": "^4.15.2",
     "express-session": "^1.15.2",
     "mongoose": "^4.9.3",
-    "randomstring": "^1.1.5"
+    "randomstring": "^1.1.5",
+    "vdom-to-html": "^2.3.1",
+    "virtual-dom": "^2.1.1"
   },
   "stylelint": {
     "extends": "stylelint-config-standard"

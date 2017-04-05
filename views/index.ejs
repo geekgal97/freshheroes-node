@@ -5,6 +5,92 @@
 </head>
 <body>
   <% include partials/header %>
+  <form action="/" method="get">
+    <fieldset>
+      <ul>
+        <li>
+          <label>
+            <input type="checkbox" name="vacancyCategories[]" value="development"/>
+            <p>Development</p>
+            <p>Frontend, Backend, Mobile, DevOps</p>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" name="vacancyCategories[]" value="design"/>
+            <p>Design</p>
+            <p>Interaction, UX, Visual Interface, DTP</p>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" name="vacancyCategories[]" value="motion"/>
+            <p>Motion</p>
+            <p>Motion Design, Film &amp; TV, (3D-) Animatie</p>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" name="vacancyCategories[]" value="business"/>
+            <p>Business</p>
+            <p>Project Management, Strategie, Sales</p>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" name="vacancyCategories[]" value="content"/>
+            <p>Content</p>
+            <p>Marketing, Copywriting, Journalistiek</p>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" name="vacancyCategories[]" value="growth"/>
+            <p>Growth</p>
+            <p>Webanalytics, A/B-test, SEO, SEA</p>
+          </label>
+        </li>
+      </ul>
+    </fieldset>
+    <main>
+      <%- html %>
+    </main>
+    <fieldset>
+      <fieldset>
+        <legend>Zoeken</legend>
+        <input type="search" name="query" />
+      </fieldset>
+      <fieldset>
+        <legend>Grootte bedrijf</legend>
+        <label><input type="checkbox" name="companySize[]" value="small" />Klein (< 20)</label>
+        <label><input type="checkbox" name="companySize[]" value="medium" />Midden (21 - 100)</label>
+        <label><input type="checkbox" name="companySize[]" value="large" />Groot (> 100)</label>
+      </fieldset>
+      <fieldset>
+        <legend>Type bedrijf</legend>
+        <label><input type="checkbox" name="companyType[]" value="startup" />Start-up</label>
+        <label><input type="checkbox" name="companyType[]" value="online-agency" />Online agency</label>
+        <label><input type="checkbox" name="companyType[]" value="advertising-agency" />Advertising agency</label>
+        <label><input type="checkbox" name="companyType[]" value="branc" />Merk</label>
+      </fieldset>
+      <fieldset>
+        <legend>Locatie</legend>
+        <select name="city">
+          <option value="" selected="selected">Selecteer een stad</option>
+          <option value="Amsterdam">Amsterdam</option>
+          <option value="Amsterdam-Duivendrecht">Amsterdam-Duivendrecht</option>
+          <option value="Amsterdam-Zuidoost">Amsterdam-Zuidoost</option>
+          <option value="Eindhoven">Eindhoven</option>
+          <option value="Haarlem">Haarlem</option>
+          <option value="Heerenveen">Heerenveen</option>
+          <option value="Rotterdam">Rotterdam</option>
+          <option value="Soest">Soest</option>
+          <option value="Utrecht">Utrecht</option>
+        </select>
+      </fieldset>
+      <button type="submit">Zoeken</button>
+    </fieldset>
+  </form>
   <% include partials/footer %>
 </body>
 </html>

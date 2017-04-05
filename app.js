@@ -1,11 +1,19 @@
 const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const compression = require('compression');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const randomstring = require('randomstring');
-const User = require('./models/user');
+const toString = require('vdom-to-html');
+const render = require('./lib/render');
+
+// Register all models
+const models = path.join(__dirname, '/models');
+fs.readdirSync(models)
+  .filter(file => ~file.search(/^[^\.].*\.js$/))
+  .forEach(file => require(path.join(models, file)));
 
 const port = process.env.PORT || 3000;
 
@@ -55,7 +63,20 @@ function getCompanyDashboard(req, res) {
 }
 
 function home(req, res) {
-  res.render('index');
+  const query = mongoose.model('vacancy').find();
+
+  query.populate('company');
+
+  query.exec(onexec);
+
+  function onexec(err, results) {
+    if (err) {
+      console.error(err);
+      res.status(500).end();
+    }
+
+    res.render('index', {html: toString(render(results))});
+  }
 }
 
 function getLogin(req, res) {
@@ -67,7 +88,7 @@ function postLogin(req, res) {
     return res.redirect('/inloggen');
   }
 
-  User
+  mongoose.model('user')
     .findOne({username: req.body.username})
     .select('+password -_id')
     .exec(onexec);
