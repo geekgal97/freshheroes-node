@@ -72,18 +72,22 @@ function home(req, res) {
   }
 
   if (size) {
-    switch (size) {
-      case 'small':
-        query.where('companyEmployees').lte(20);
-        break;
-      case 'medium':
-        query.where('companyEmployees').gte(20).lte(100);
-        break;
-      case 'large':
-        query.where('companyEmployees').gte(100);
-        break;
-      default:
-    }
+    const orArray = [];
+    size.forEach(size => {
+      switch (size) {
+        case 'small':
+          orArray.push({companyEmployees: {$lte: 20}});
+          break;
+        case 'medium':
+          orArray.push({companyEmployees: {$gte: 20, $lte: 100}});
+          break;
+        case 'large':
+          orArray.push({companyEmployees: {$gte: 100}});
+          break;
+        default:
+      }
+    });
+    query.or(orArray);
   }
 
   if (location) {
@@ -104,16 +108,17 @@ function home(req, res) {
   function onexec(err, results) {
     if (err) {
       console.error(err);
-      res.status(500).end();
+      return res.status(500).end();
     }
 
     const filterOptions = Object.assign({
       type: [], size: null, location: null, q: null, categories: []
     }, req.query);
 
-    console.log(filterOptions);
-
-    res.render('index', {html: toString(render(results)), filterOptions});
+    if (req.headers['content-type'] && req.headers['content-type'] === 'application/json') {
+      return res.json(results);
+    }
+    return res.render('index', {html: toString(render(results)), filterOptions, results});
   }
 
   function escapeRegex(text) {
