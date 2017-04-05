@@ -10,42 +10,42 @@
       <ul>
         <li>
           <label>
-            <input type="checkbox" name="vacancyCategories[]" value="development"/>
+            <input type="checkbox" name="categories[]" value="development"/>
             <p>Development</p>
             <p>Frontend, Backend, Mobile, DevOps</p>
           </label>
         </li>
         <li>
           <label>
-            <input type="checkbox" name="vacancyCategories[]" value="design"/>
+            <input type="checkbox" name="categories[]" value="design"/>
             <p>Design</p>
             <p>Interaction, UX, Visual Interface, DTP</p>
           </label>
         </li>
         <li>
           <label>
-            <input type="checkbox" name="vacancyCategories[]" value="motion"/>
+            <input type="checkbox" name="categories[]" value="motion"/>
             <p>Motion</p>
             <p>Motion Design, Film &amp; TV, (3D-) Animatie</p>
           </label>
         </li>
         <li>
           <label>
-            <input type="checkbox" name="vacancyCategories[]" value="business"/>
+            <input type="checkbox" name="categories[]" value="business"/>
             <p>Business</p>
             <p>Project Management, Strategie, Sales</p>
           </label>
         </li>
         <li>
           <label>
-            <input type="checkbox" name="vacancyCategories[]" value="content"/>
+            <input type="checkbox" name="categories[]" value="content"/>
             <p>Content</p>
             <p>Marketing, Copywriting, Journalistiek</p>
           </label>
         </li>
         <li>
           <label>
-            <input type="checkbox" name="vacancyCategories[]" value="growth"/>
+            <input type="checkbox" name="categories[]" value="growth"/>
             <p>Growth</p>
             <p>Webanalytics, A/B-test, SEO, SEA</p>
           </label>
@@ -58,24 +58,24 @@
     <fieldset>
       <fieldset>
         <legend>Zoeken</legend>
-        <input type="search" name="query" />
+        <input type="search" name="q" />
       </fieldset>
       <fieldset>
         <legend>Grootte bedrijf</legend>
-        <label><input type="checkbox" name="companySize[]" value="small" />Klein (< 20)</label>
-        <label><input type="checkbox" name="companySize[]" value="medium" />Midden (21 - 100)</label>
-        <label><input type="checkbox" name="companySize[]" value="large" />Groot (> 100)</label>
+        <label><input type="radio" name="size" value="small" />Klein (< 20)</label>
+        <label><input type="radio" name="size" value="medium" />Midden (21 - 100)</label>
+        <label><input type="radio" name="size" value="large" />Groot (> 100)</label>
       </fieldset>
       <fieldset>
         <legend>Type bedrijf</legend>
-        <label><input type="checkbox" name="companyType[]" value="startup" />Start-up</label>
-        <label><input type="checkbox" name="companyType[]" value="online-agency" />Online agency</label>
-        <label><input type="checkbox" name="companyType[]" value="advertising-agency" />Advertising agency</label>
-        <label><input type="checkbox" name="companyType[]" value="branc" />Merk</label>
+        <label><input type="checkbox" name="type[]" value="startup" />Start-up</label>
+        <label><input type="checkbox" name="type[]" value="online-agency" />Online agency</label>
+        <label><input type="checkbox" name="type[]" value="advertising-agency" />Advertising agency</label>
+        <label><input type="checkbox" name="type[]" value="branc" />Merk</label>
       </fieldset>
       <fieldset>
         <legend>Locatie</legend>
-        <select name="city">
+        <select name="location">
           <option value="" selected="selected">Selecteer een stad</option>
           <option value="Amsterdam">Amsterdam</option>
           <option value="Amsterdam-Duivendrecht">Amsterdam-Duivendrecht</option>
