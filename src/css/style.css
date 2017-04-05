@@ -28,6 +28,8 @@ body {
 }
 
 h1 {
+  font-family: 'Abril Fatface', system-ui;
+  font-weight: normal;
   line-height: 1.1;
 }
 
