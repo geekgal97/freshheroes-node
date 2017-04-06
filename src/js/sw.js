@@ -6,9 +6,8 @@ self.addEventListener('install', event => event.waitUntil(
     // Add files to cache object
     .then(cache => cache.addAll([
       '/',
-      'images/*',
       //CSS files
-      'account.css', 'admin.css', 'home.css','other.css','style.css',
+      'account.css', 'admin.css', 'other.css','style.css',
       //JS files
       'admin.js', 'home.js', 'index.js'
     ]))
@@ -22,12 +21,18 @@ self.addEventListener('install', event => event.waitUntil(
 self.addEventListener('fetch', event => {
   const request = event.request;
   // Use offline page on failed fetch
-  event.respondWith(
-    fetch(request)
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request)
       .then(response => cachePage(request, response))
       .catch(err => fetchCoreFile(request.url))
       .catch(err => fetchCoreFile('/'))
-  );
+    );
+  } else {
+    fetch(request)
+    .catch(err => fetchCoreFile(request.url))
+    .catch(err => fetchCoreFile('/'))
+  }
 });
 
 // Use cached assets
@@ -36,6 +41,13 @@ function fetchCoreFile(url) {
     // Resolves to response, matching request in the cache object
     .then(cache => cache.match(url))
     // If the condition is true
+    .then(response => response ? response : Promise.reject());
+}
+
+// Get cached page
+function getCachedPage(request) {
+  return caches.open('freshheroes-node')
+    .then(cache => cache.match(request))
     .then(response => response ? response : Promise.reject());
 }
 
