@@ -42,4 +42,9 @@ $ npm start
 ```
 
 ## Change log
+
+**Day two (12 hours)**
 * [x] Load stylesheets individually per page
+
+**Day three**
+* [x] Remove SVG icons from fonts directory
