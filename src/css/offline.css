@@ -1,0 +1,11 @@
+body {
+  background-image: url('images/pattern-trol.png')
+}
+
+main {
+  background-color: #fff;
+}
+
+main > a, main > a:visited {
+  color: #37c9a2;
+}
