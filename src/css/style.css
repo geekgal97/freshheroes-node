@@ -111,10 +111,6 @@ form label {
   margin-bottom: 1em;
 }
 
-form :last-child {
-  margin-bottom: 0;
-}
-
 fieldset {
   border: none;
 }
