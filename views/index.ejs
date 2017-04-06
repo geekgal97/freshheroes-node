@@ -2,6 +2,7 @@
 <html lang="nl">
 <head>
   <% include partials/meta %>
+  <script src="/home.js" defer></script>
 </head>
 <body>
   <% include partials/header %>
@@ -63,9 +64,9 @@
         </fieldset>
         <fieldset>
           <legend>Grootte bedrijf</legend>
-          <label><input type="radio" name="size" value="small" <%= filterOptions.size === 'small' ? 'checked' : false %>/>Klein (< 20)</label>
-          <label><input type="radio" name="size" value="medium" <%= filterOptions.size === 'medium' ? 'checked' : false %>/>Midden (21 - 100)</label>
-          <label><input type="radio" name="size" value="large" <%= filterOptions.size === 'large' ? 'checked' : false %>/>Groot (> 100)</label>
+          <label><input type="checkbox" name="size[]" value="small" <%= filterOptions.size === 'small' ? 'checked' : false %>/>Klein (< 20)</label>
+          <label><input type="checkbox" name="size[]" value="medium" <%= filterOptions.size === 'medium' ? 'checked' : false %>/>Midden (21 - 100)</label>
+          <label><input type="checkbox" name="size[]" value="large" <%= filterOptions.size === 'large' ? 'checked' : false %>/>Groot (> 100)</label>
         </fieldset>
         <fieldset>
           <legend>Type bedrijf</legend>
@@ -94,5 +95,6 @@
     </form>
   </main>
   <% include partials/footer %>
+  <script>var __results__ = <%- JSON.stringify(results) %></script>
 </body>
 </html>
