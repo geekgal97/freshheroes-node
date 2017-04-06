@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
+const slug = require('slug');
 
 const VacancySchema = mongoose.Schema({
   company: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'company'
   },
+  slug: String,
   companyName: String,
   companyType: String,
   companyEmployees: Number,
@@ -21,6 +23,13 @@ const VacancySchema = mongoose.Schema({
   timestamps: true
 });
 
+VacancySchema.pre('save', onsave);
+
 const VacancyModel = mongoose.model('vacancy', VacancySchema);
 
 module.exports = VacancyModel;
+
+function onsave(next) {
+  this.slug = slug(this.name);
+  next();
+}
