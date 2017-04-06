@@ -18,11 +18,8 @@ ul {
   padding: 0;
 }
 
-input[type=checkbox],
-input[type=radio] {
-  position: absolute;
-  opacity: 0;
-  left: -9999px;
+select {
+  font-size: 1rem;
 }
 
 .search {
@@ -62,7 +59,13 @@ form > fieldset:first-child {
   overflow: scroll;
   position: relative;
   padding: 0;
-  order: 1;
+}
+
+form > fieldset:first-child input[type=checkbox],
+form > fieldset:first-child input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  left: -9999px;
 }
 
 fieldset:first-child ul {
@@ -186,21 +189,31 @@ fieldset:first-child li:nth-child(6) input:checked + label {
 }
 
 /* ==========================================================================
-   Results
+   Results & Filter
    ========================================================================== */
 form > div {
-  order: 3;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: var(--wrapper-width);
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
-/* ==========================================================================
-   Filter
-   ========================================================================== */
-form > fieldset:last-of-type {
+form > div > div {
+  order: 3;
+  flex-basis: 40em;
+  @media screen and (min-width: 57em) {
+    order: 1;
+  }
+}
+
+form > div > fieldset {
   order: 2;
   flex-grow: 1;
+  flex-basis: 15em;
 }
 
-form > fieldset:last-of-type fieldset {
+form > div > fieldset fieldset {
   margin: 1em 0;
 }
 
@@ -209,4 +222,10 @@ legend {
   padding: 0;
   color: #333;
   margin: 1em 0 0.5em;
+}
+
+@media screen and (min-width: 55em) {
+  summary {
+    display: none;
+  }
 }

@@ -55,44 +55,49 @@
           </li>
         </ul>
       </fieldset>
-      <div data-root>
-        <%- html %>
+      <div>
+        <div data-root>
+          <%- html %>
+        </div>
+        <fieldset>
+          <fieldset class="search">
+            <legend>Zoeken</legend>
+            <input type="search" name="q" value="<%= filterOptions.q ? filterOptions.q : '' %>" />
+          </fieldset>
+          <details open>
+            <summary>Filter</summary>
+            <fieldset>
+              <legend>Grootte bedrijf</legend>
+              <label><input type="checkbox" name="size[]" value="small" <%= filterOptions.size === 'small' ? 'checked' : false %>/>Klein (< 20)</label>
+              <label><input type="checkbox" name="size[]" value="medium" <%= filterOptions.size === 'medium' ? 'checked' : false %>/>Midden (21 - 100)</label>
+              <label><input type="checkbox" name="size[]" value="large" <%= filterOptions.size === 'large' ? 'checked' : false %>/>Groot (> 100)</label>
+            </fieldset>
+            <fieldset>
+              <legend>Type bedrijf</legend>
+              <label><input type="checkbox" name="type[]" value="startup" <%= filterOptions.type.includes('startup') ? 'checked' : false %>/>Start-up</label>
+              <label><input type="checkbox" name="type[]" value="online-agency" <%= filterOptions.type.includes('online-agency') ? 'checked' : false %>/>Online agency</label>
+              <label><input type="checkbox" name="type[]" value="advertising-agency" <%= filterOptions.type.includes('advertising-agency') ? 'checked' : false %>/>Advertising agency</label>
+              <label><input type="checkbox" name="type[]" value="brand" <%= filterOptions.type.includes('brand') ? 'checked' : false %>/>Merk</label>
+            </fieldset>
+            <fieldset>
+              <legend>Locatie</legend>
+              <select name="location">
+                <option value="">Selecteer een stad</option>
+                <option value="Amsterdam" <%= filterOptions.location === 'Amsterdam' ? 'selected' : false %>>Amsterdam</option>
+                <option value="Amsterdam-Duivendrecht" <%= filterOptions.location === 'Amsterdam-Duivendrecht' ? 'selected' : false %>>Amsterdam-Duivendrecht</option>
+                <option value="Amsterdam-Zuidoost" <%= filterOptions.location === 'Amsterdam-Zuidoost' ? 'selected' : false %>>Amsterdam-Zuidoost</option>
+                <option value="Eindhoven" <%= filterOptions.location === 'Eindhoven' ? 'selected' : false %>>Eindhoven</option>
+                <option value="Haarlem" <%= filterOptions.location === 'Haarlem' ? 'selected' : false %>>Haarlem</option>
+                <option value="Heerenveen" <%= filterOptions.location === 'Heerenveen' ? 'selected' : false %>>Heerenveen</option>
+                <option value="Rotterdam" <%= filterOptions.location === 'Rotterdam' ? 'selected' : false %>>Rotterdam</option>
+                <option value="Soest" <%= filterOptions.location === 'Soest' ? 'selected' : false %>>Soest</option>
+                <option value="Utrecht" <%= filterOptions.location === 'Utrecht' ? 'selected' : false %>>Utrecht</option>
+              </select>
+            </fieldset>
+          </details>
+          <button type="submit">Zoeken</button>
+        </fieldset>
       </div>
-      <fieldset>
-        <fieldset class="search">
-          <legend>Zoeken</legend>
-          <input type="search" name="q" value="<%= filterOptions.q ? filterOptions.q : '' %>" />
-        </fieldset>
-        <fieldset>
-          <legend>Grootte bedrijf</legend>
-          <label><input type="checkbox" name="size[]" value="small" <%= filterOptions.size === 'small' ? 'checked' : false %>/>Klein (< 20)</label>
-          <label><input type="checkbox" name="size[]" value="medium" <%= filterOptions.size === 'medium' ? 'checked' : false %>/>Midden (21 - 100)</label>
-          <label><input type="checkbox" name="size[]" value="large" <%= filterOptions.size === 'large' ? 'checked' : false %>/>Groot (> 100)</label>
-        </fieldset>
-        <fieldset>
-          <legend>Type bedrijf</legend>
-          <label><input type="checkbox" name="type[]" value="startup" <%= filterOptions.type.includes('startup') ? 'checked' : false %>/>Start-up</label>
-          <label><input type="checkbox" name="type[]" value="online-agency" <%= filterOptions.type.includes('online-agency') ? 'checked' : false %>/>Online agency</label>
-          <label><input type="checkbox" name="type[]" value="advertising-agency" <%= filterOptions.type.includes('advertising-agency') ? 'checked' : false %>/>Advertising agency</label>
-          <label><input type="checkbox" name="type[]" value="brand" <%= filterOptions.type.includes('brand') ? 'checked' : false %>/>Merk</label>
-        </fieldset>
-        <fieldset>
-          <legend>Locatie</legend>
-          <select name="location">
-            <option value="">Selecteer een stad</option>
-            <option value="Amsterdam" <%= filterOptions.location === 'Amsterdam' ? 'selected' : false %>>Amsterdam</option>
-            <option value="Amsterdam-Duivendrecht" <%= filterOptions.location === 'Amsterdam-Duivendrecht' ? 'selected' : false %>>Amsterdam-Duivendrecht</option>
-            <option value="Amsterdam-Zuidoost" <%= filterOptions.location === 'Amsterdam-Zuidoost' ? 'selected' : false %>>Amsterdam-Zuidoost</option>
-            <option value="Eindhoven" <%= filterOptions.location === 'Eindhoven' ? 'selected' : false %>>Eindhoven</option>
-            <option value="Haarlem" <%= filterOptions.location === 'Haarlem' ? 'selected' : false %>>Haarlem</option>
-            <option value="Heerenveen" <%= filterOptions.location === 'Heerenveen' ? 'selected' : false %>>Heerenveen</option>
-            <option value="Rotterdam" <%= filterOptions.location === 'Rotterdam' ? 'selected' : false %>>Rotterdam</option>
-            <option value="Soest" <%= filterOptions.location === 'Soest' ? 'selected' : false %>>Soest</option>
-            <option value="Utrecht" <%= filterOptions.location === 'Utrecht' ? 'selected' : false %>>Utrecht</option>
-          </select>
-        </fieldset>
-        <button type="submit">Zoeken</button>
-      </fieldset>
     </form>
   </main>
   <% include partials/footer %>
