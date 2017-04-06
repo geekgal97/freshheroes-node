@@ -66,7 +66,7 @@ fieldset:first-child ul {
 }
 
 fieldset:first-child label {
-  background-color: white;
+  background: white;
   width: 100%;
   height: 100%;
   padding: 1em;
@@ -108,11 +108,53 @@ fieldset:first-child input:checked + label span::after {
   content: '✓';
 }
 
-fieldset:first-child input:checked + label {
+fieldset:first-child input:checked + label,
+fieldset:first-child input:checked + label span,
+fieldset:first-child label:hover,
+fieldset:first-child label:hover span {
   color: white;
-  background-image: url(/images/p-business.png);
 }
 
-fieldset:first-child input:checked + label span {
-  color: white;
+fieldset:first-child label:hover {
+  animation: animatedBackground 2s infinite linear;
+}
+
+@keyframes animatedBackground {
+  0% {
+    background-position: 0 360px;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+fieldset:first-child li:nth-child(1) label:hover,
+fieldset:first-child li:nth-child(1) input:checked + label {
+  background: url(/images/p-development.png);
+}
+
+fieldset:first-child li:nth-child(2) label:hover,
+fieldset:first-child li:nth-child(2) input:checked + label {
+  background: url(/images/p-design.png);
+}
+
+fieldset:first-child li:nth-child(3) label:hover,
+fieldset:first-child li:nth-child(3) input:checked + label {
+  background: url(/images/p-motion.png);
+}
+
+fieldset:first-child li:nth-child(4) label:hover,
+fieldset:first-child li:nth-child(4) input:checked + label {
+  background: url(/images/p-business.png);
+}
+
+fieldset:first-child li:nth-child(5) label:hover,
+fieldset:first-child li:nth-child(5) input:checked + label {
+  background: url(/images/p-content.png);
+}
+
+fieldset:first-child li:nth-child(6) label:hover,
+fieldset:first-child li:nth-child(6) input:checked + label {
+  background: url(/images/p-growth.png);
 }
