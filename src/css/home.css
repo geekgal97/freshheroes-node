@@ -22,6 +22,10 @@ select {
   font-size: 1rem;
 }
 
+input[type=checkbox]:focus {
+  outline: 2px solid #6c23b0;
+}
+
 .search {
   position: relative;
 }
@@ -47,7 +51,7 @@ form {
   position: relative;
 }
 
-fieldset:first-child {
+form > fieldset:first-child {
   background-image: url(/images/pattern-superman.png);
   width: 100%;
   min-width: 100%;
@@ -135,11 +139,14 @@ fieldset:first-child input:checked + label span::after {
 fieldset:first-child input:checked + label,
 fieldset:first-child input:checked + label span,
 fieldset:first-child label:hover,
-fieldset:first-child label:hover span {
+fieldset:first-child label:hover span,
+fieldset:first-child input:focus + label,
+fieldset:first-child input:focus + label span {
   color: white;
 }
 
-fieldset:first-child label:hover {
+fieldset:first-child label:hover,
+fieldset:first-child input:focus + label {
   animation: animatedBackground 2s infinite linear;
 }
 
@@ -154,31 +161,37 @@ fieldset:first-child label:hover {
 }
 
 fieldset:first-child li:nth-child(1) label:hover,
+fieldset:first-child li:nth-child(1) input:focus + label,
 fieldset:first-child li:nth-child(1) input:checked + label {
   background: url(/images/p-development.png);
 }
 
 fieldset:first-child li:nth-child(2) label:hover,
+fieldset:first-child li:nth-child(2) input:focus + label,
 fieldset:first-child li:nth-child(2) input:checked + label {
   background: url(/images/p-design.png);
 }
 
 fieldset:first-child li:nth-child(3) label:hover,
+fieldset:first-child li:nth-child(3) input:focus + label,
 fieldset:first-child li:nth-child(3) input:checked + label {
   background: url(/images/p-motion.png);
 }
 
 fieldset:first-child li:nth-child(4) label:hover,
+fieldset:first-child li:nth-child(4) input:focus + label,
 fieldset:first-child li:nth-child(4) input:checked + label {
   background: url(/images/p-business.png);
 }
 
 fieldset:first-child li:nth-child(5) label:hover,
+fieldset:first-child li:nth-child(5) input:focus + label,
 fieldset:first-child li:nth-child(5) input:checked + label {
   background: url(/images/p-content.png);
 }
 
 fieldset:first-child li:nth-child(6) label:hover,
+fieldset:first-child li:nth-child(6) input:focus + label,
 fieldset:first-child li:nth-child(6) input:checked + label {
   background: url(/images/p-growth.png);
 }
