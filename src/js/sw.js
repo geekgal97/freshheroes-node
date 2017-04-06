@@ -3,7 +3,7 @@
 self.addEventListener('install', event => event.waitUntil(
   // Cache object and Cache name
   caches.open('freshheroes-node')
-    // Add to cache object
+    // Add folder to cache object
     .then(cache => cache.add('/'))
     //Become the active service worker
     //Prevents the browser from terminating the service worker
@@ -11,8 +11,14 @@ self.addEventListener('install', event => event.waitUntil(
 ));
 
 // Hijack fetch return custom response
-//Listen for fetch event
+// Listen for fetch event
 self.addEventListener('fetch', event => {
   //Generate custom response-generating code
   event.respondWith(new Response('hijacked'));
 });
+
+// Use offline page if fetch fails
+function fetchOfflienPage() {
+  return.caches.open('freshheroes-node')
+    .then(cache => cache.match('/'));
+}
