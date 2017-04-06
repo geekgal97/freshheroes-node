@@ -209,11 +209,6 @@ header > section img {
 
 }
 
-@media screen and (min-width: 60em) {
-
-}
-
-
 /* forms */
 form label {
   display: block;
