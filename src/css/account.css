@@ -76,6 +76,10 @@ form > div {
   padding: 1em 3em;
 }
 
+input {
+  margin-top: 0.5em;
+}
+
 form button {
   background: var(--button-pink);
   flex: 1;
