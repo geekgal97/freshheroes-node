@@ -84,5 +84,5 @@ gulp.task('watch', ['browser-sync'], () => {
   gulp.watch('src/css/**/*.css', ['build:css']);
   gulp.watch('src/images/*', ['build:images']);
   gulp.watch('src/fonts/*', ['build:fonts']);
-  gulp.watch('src/js/**/*.js', ['build:js']);
+  gulp.watch(['lib/**/*.js', 'src/js/**/*.js'], ['build:js']);
 });
