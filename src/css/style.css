@@ -98,6 +98,10 @@ form :last-child {
   margin-bottom: 0;
 }
 
+fieldset {
+  border: none;
+}
+
 /* footer */
 footer {
   background: #f6f6f6;
