@@ -2,7 +2,7 @@
 // Listen for install event
 self.addEventListener('install', event => event.waitUntil(
   // Cache object and Cache name
-  caches.open('freshheroes-node')
+  caches.open('freshheroes-node-v1')
     // Add files to cache object
     .then(cache => cache.addAll([
       '/',
@@ -37,7 +37,7 @@ self.addEventListener('fetch', event => {
 
 // Use cached assets
 function fetchCoreFile(url) {
-  return caches.open('freshheroes-node')
+  return caches.open('freshheroes-node-v1')
     // Resolves to response, matching request in the cache object
     .then(cache => cache.match(url))
     // If the condition is true
@@ -46,7 +46,7 @@ function fetchCoreFile(url) {
 
 // Get cached page
 function getCachedPage(request) {
-  return caches.open('freshheroes-node')
+  return caches.open('freshheroes-node-v1')
     .then(cache => cache.match(request))
     .then(response => response ? response : Promise.reject());
 }
@@ -55,7 +55,7 @@ function getCachedPage(request) {
 function cachePage(request, response) {
   // Clone of response object
   const clonedResponse = response.clone();
-  caches.open('freshheroes-node')
+  caches.open('freshheroes-node-v1')
     // Add to the current cache object
     .then(cache => cache.put(request, clonedResponse));
   return response;
