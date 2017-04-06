@@ -24,6 +24,7 @@ self.addEventListener('fetch', event => {
   // Use offline page on failed fetch
   event.respondWith(
     fetch(request)
+      .then(response => cachePage(request, response))
       .catch(err => fetchCoreFile(request.url))
       .catch(err => fetchCoreFile('/'))
   );
@@ -32,7 +33,18 @@ self.addEventListener('fetch', event => {
 // Use cached assets
 function fetchCoreFile(url) {
   return caches.open('freshheroes-node')
+    // Resolves to response, matching request in the cache object
     .then(cache => cache.match(url))
     // If the condition is true
     .then(response => response ? response : Promise.reject());
+}
+
+// Cache page on fetch
+function cachePage(request, response) {
+  // Clone of response object
+  const clonedResponse = response.clone();
+  caches.open('freshheroes-node')
+    // Add to the current cache object
+    .then(cache => cache.put(request, clonedResponse));
+  return response;
 }
