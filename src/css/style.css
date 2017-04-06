@@ -158,6 +158,10 @@ footer a {
     align-items: center;
   }
 
+  footer a {
+    transition: color 0.2s ease-in-out;
+  }
+
   footer p {
     border-bottom: 0;
   }
