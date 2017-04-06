@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <% include partials/meta %>
+  <link rel="stylesheet" href="/page.css">
+</head>
+<body>
+  <% include partials/header %>
+  <main>
+    <h1>Stagecoördinatie voor scholen</h1>
+    <p>
+      Het stageproces van A tot Z: van een overzichtelijke inschrijfmodule voor de stagebank tot dossiervorming van de student in de cloud. Alle deliverables op één centrale plek. Fresh Heroes is een systeem dat met u meedenkt, overzicht bewaard en naadloos is te implementeren met uw huidige systemen. Wij geloven in een landelijke standaard, en kunnen die nu ook bieden. Een unieke samenwerking in de branche, met landelijke dekking.
+    </p>
+
+    <h2>Alles op één plek</h2>
+
+    <p>
+      Met Fresh Heroes als stagebank én platform voor het coördineren van de stageperiodes, kan alles omtrent stages op één plek worden geregeld. Het goedkeuren van stageplekken en bijhouden van het proces van de student is nog nooit zo simpel geweest. Bovendien bespaart het de opleiding én de student een hoop administratie: informatie die nu nog handmatig moet worden ingevuld en goedgekeurd, is dankzij de informatie van de stagebank al aanwezig.
+    </p>
+
+    <h2>Meer informatie</h2>
+
+    <p>
+      We are ready to rock and roll! Maar dat kunnen we niet alleen; daar hebben we u, de Hogescholen, voor nodig. Meer interesse in wat Fresh Heroes voor u kan betekenen? Laat hieronder gegevens achter, zodat wij vrijblijvend contact kunnen opnemen.
+    </p>
+
+    <form action="/schools" method="POST" >
+      <section>
+        <label for="naam">Naam</label>
+        <input name="name" type="text">
+      </section>
+      <section>
+        <label for="telefoonnummer">Telefoonnummer</label>
+        <input name="phonenumber" type="tel">
+      </section>
+      <button value="contact" type="submit">Contact mij</button>
+    </form>
+
+    <h2>Totaalpakket</h2>
+
+    <p>
+      Fresh Heroes biedt het complete pakket:
+    </p>
+
+    <ul>
+      <li>Complete flow van stage lopen: student, bedrijf, stagebegeleider, stagementor & instelling</li>
+      <li>Eenvoudig voortgang van student bijhouden</li>
+      <li>Snelle beoordeling van stagebedrijven</li>
+      <li>Goede symbiose tussen faculiteiten en eventuele andere hogescholen</li>
+      <li>Inzicht in de kwaliteit van stagebedrijven en studenten</li>
+      <li>Zeer eenvoudige interface</li>
+      <li>Eenvoudig te koppelen aan bestaande systemen</li>
+      <li>Opslagcapaciteit en mogelijkheid tot centraal inleveren van documenten</li>
+    </ul>
+
+    <p>
+      Fresh Heroes is het stageproces van A tot Z. Van een overzichtelijke stagebank tot dossiervorming in de cloud. Een systeem wat met u meedenkt, overzicht bewaard en naadloos te implementeren is met uw huidige systeem.
+    </p>
+
+  </main>
+  <% include partials/footer %>
+</body>
+</html>
