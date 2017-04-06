@@ -24,10 +24,9 @@ self.addEventListener('fetch', event => {
   if (request.mode === 'navigate') {
     event.respondWith(
       fetch(request)
-      .then(response => cachePage(request, response))
-      .catch(err => fetchCoreFile(request.url))
-      .catch(err => fetchCoreFile('/offline'))
-    );
+        .then(response => cachePage(request, response))
+        .catch(err => fetchCoreFile(request.url))
+        .catch(err => fetchCoreFile('/offline')));
   } else {
     fetch(request)
     .catch(err => fetchCoreFile(request.url))
