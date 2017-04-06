@@ -192,9 +192,7 @@ function getPageStudents(req, res) {
 }
 
 function getOfflinePage(req, res) {
-  res.render('offline', {
-    title: 'Offline'
-  });
+  res.render('offline');
 }
 
 function getPageCompanies(req, res) {
