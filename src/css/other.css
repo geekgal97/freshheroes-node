@@ -74,7 +74,7 @@ nav ul a {
   }
 
   header > div img {
-    widows: 50%;
+    width: 50%;
     min-width: 550px;
   }
 
