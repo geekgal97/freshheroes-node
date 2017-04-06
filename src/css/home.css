@@ -45,14 +45,9 @@ select {
 form {
   width: 100%;
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
 }
 
-/* ==========================================================================
-   Category cards
-   ========================================================================== */
-form > fieldset:first-child {
+fieldset:first-child {
   background-image: url(/images/pattern-superman.png);
   width: 100%;
   min-width: 100%;
