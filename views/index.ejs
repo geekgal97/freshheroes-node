@@ -12,50 +12,50 @@
       <fieldset>
         <ul>
           <li>
-            <label>
-              <input type="checkbox" name="categories[]" value="development" <%= filterOptions.categories.includes('development') ? 'checked' : false %>/>
+            <input id="category-development" type="checkbox" name="categories[]" value="development" <%= filterOptions.categories.includes('development') ? 'checked' : false %>/>
+            <label for="category-development">
               <span>Development</span>
               <p>Frontend, Backend, Mobile, DevOps</p>
             </label>
           </li>
           <li>
-            <label>
-              <input type="checkbox" name="categories[]" value="design" <%= filterOptions.categories.includes('design') ? 'checked' : false %>/>
+            <input id="category-design" type="checkbox" name="categories[]" value="design" <%= filterOptions.categories.includes('design') ? 'checked' : false %>/>
+            <label for="category-design">
               <span>Design</span>
               <p>Interaction, UX, Visual Interface, DTP</p>
             </label>
           </li>
           <li>
-            <label>
-              <input type="checkbox" name="categories[]" value="motion" <%= filterOptions.categories.includes('motion') ? 'checked' : false %>/>
+            <input id="category-motion" type="checkbox" name="categories[]" value="motion" <%= filterOptions.categories.includes('motion') ? 'checked' : false %>/>
+            <label for="category-motion">
               <span>Motion</span>
               <p>Motion Design, Film &amp; TV, (3D-) Animatie</p>
             </label>
           </li>
           <li>
-            <label>
-              <input type="checkbox" name="categories[]" value="business" <%= filterOptions.categories.includes('business') ? 'checked' : false %>/>
+            <input id="category-business" type="checkbox" name="categories[]" value="business" <%= filterOptions.categories.includes('business') ? 'checked' : false %>/>
+            <label for="category-business">
               <span>Business</span>
               <p>Project Management, Strategie, Sales</p>
             </label>
           </li>
           <li>
-            <label>
-              <input type="checkbox" name="categories[]" value="content" <%= filterOptions.categories.includes('content') ? 'checked' : false %>/>
+            <input id="category-content" type="checkbox" name="categories[]" value="content" <%= filterOptions.categories.includes('content') ? 'checked' : false %>/>
+            <label for="category-content">
               <span>Content</span>
               <p>Marketing, Copywriting, Journalistiek</p>
             </label>
           </li>
           <li>
-            <label>
-              <input type="checkbox" name="categories[]" value="growth" <%= filterOptions.categories.includes('growth') ? 'checked' : false %>/>
+            <input id="category-growth" type="checkbox" name="categories[]" value="growth" <%= filterOptions.categories.includes('growth') ? 'checked' : false %>/>
+            <label for="category-growth">
               <span>Growth</span>
               <p>Webanalytics, A/B-test, SEO, SEA</p>
             </label>
           </li>
         </ul>
       </fieldset>
-      <div>
+      <div data-root>
         <%- html %>
       </div>
       <fieldset>
