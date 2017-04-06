@@ -1,5 +1,3 @@
-<svg width="17" height="12" viewBox="147 18 17 12">
-  <g fill="none" fill-rule="evenodd" stroke-linecap="square" stroke="#2B9CEC" stroke-width="2">
-    <path d="M148 24h12M158 20l4 4-4 4"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="17" height="12" viewBox="0 0 17 12">
+  <path fill="none" stroke="#2B9CEC" stroke-linecap="square" stroke-width="2" d="M11,2 L15,6 L11,10 M1,6 L13,6"/>
 </svg>
