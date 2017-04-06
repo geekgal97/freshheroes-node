@@ -37,6 +37,7 @@ express()
   .get('/', home)
   .get('/inloggen', getLogin)
   .post('/inloggen', postLogin)
+  .get('/inschrijven', getSignup)
   .get('/dashboard/stages', authenticate, getCompanyDashboard)
   .get('/studenten', getPageStudents)
   .get('/bedrijven', getPageCompanies)
@@ -169,6 +170,10 @@ function postLogin(req, res) {
       return res.redirect('/login');
     }
   }
+}
+
+function getSignup(req, res) {
+  res.render('signup');
 }
 
 function getPageStudents(req, res) {

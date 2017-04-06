@@ -1,0 +1,205 @@
+:root {
+  --button-pink: #ef47a1;
+  --button-pink-hover: #eb1889;
+}
+
+body {
+  background-image: url('../images/bg-pattern-pineapples.png');
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+main > div {
+  background: #fff;
+  flex: 1;
+}
+
+h1 {
+  margin: 0;
+  padding: 1em;
+  text-align: center;
+}
+
+aside ul {
+  list-style: none;
+  margin: 2em 0;
+  padding-left: 0;
+}
+
+aside li {
+  margin-bottom: 0.5em;
+  padding-left: 1.5em;
+  position: relative;
+  line-height: 1.25em;
+
+  &::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17px' height='15px' viewBox='442 17 17 15'%3E %3Cpolyline id='Line' stroke='%233DDBB1' stroke-width='3' stroke-linecap='square' fill='none' points='445 25 449 29 456 20'%3E%3C/polyline%3E %3C/svg%3E");
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.125em;
+    width: 1em;
+    height: 1em;
+  }
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+aside li svg {
+  position: absolute;
+  left: -0.4em;
+  top: 0.2em;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 3em;
+}
+
+h1,
+fieldset {
+  border-bottom: 1px #e0e0e0 solid;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 3em;
+}
+
+form button {
+  background: var(--button-pink);
+  flex: 1;
+  flex-grow: inherit;
+  margin-bottom: 1em;
+  transition: background 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background: var(--button-pink-hover);
+    border: 1px var(--button-pink);
+    outline: none;
+  }
+}
+
+aside {
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      #dedede,
+      #fff 1px,
+      #dedede 2px,
+      #fff 1px
+    );
+  display: flex;
+  align-items: flex-start;
+  padding: 1em 2em;
+}
+
+aside a {
+  border-right: 1px #ccc solid;
+  display: inline-block;
+  line-height: 1.5;
+  padding: 0 0.5em;
+  position: relative;
+}
+
+<<<<<<< HEAD
+aside > a svg {
+  position: absolute;
+  top: 0.4em;
+  right: -1.5em;
+  transition: right 0.2s ease-in-out;
+=======
+  &::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='12' viewBox='0 0 17 12'%3E %3Cpath fill='none' stroke='%232B9CEC' stroke-linecap='square' stroke-width='2' d='M11,2 L15,6 L11,10 M1,6 L13,6'/%3E %3C/svg%3E ");
+    content: "";
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    top: 0.4em;
+    right: -1.5em;
+    transition: right 0.2s ease-in-out;
+  }
+>>>>>>> e07c54123b62b940a82f6755ca1fefbfe840bed7
+
+  &:hover {
+    right: -1.75em;
+  }
+}
+
+form a,
+aside a {
+  color: #2b9cec;
+  text-decoration: none;
+}
+
+aside > p:first-child {
+  font-weight: bold;
+}
+
+p a {
+  &:hover {
+    border-bottom: 1px #2b9cec solid;
+    line-height: 1;
+  }
+}
+
+aside a:last-child {
+  border-right: 0;
+}
+
+aside p {
+  margin: 0;
+  padding-right: 3em;
+}
+
+@media screen and (min-width: 40em) {
+  h1 {
+    text-align: left;
+  }
+
+  aside {
+    padding: 3em 2em;
+  }
+}
+
+@media screen and (min-width: 55em) {
+  main {
+    flex-direction: row;
+    max-width: 65%;
+  }
+
+  aside {
+    flex-direction: column;
+    max-width: 20em;
+  }
+}
+
+@media screen and (min-width: 70em) {
+  form > div {
+    flex-direction: row;
+  }
+
+  form button {
+    margin-bottom: 0;
+  }
+
+  aside a {
+    border-right: 0;
+    padding: 0;
+  }
+
+  aside p {
+    margin: 0 0 1em;
+    padding-right: 0;
+  }
+}
