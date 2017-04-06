@@ -55,14 +55,15 @@ form > fieldset:first-child input:checked + label span::after {
 }
 
 form > fieldset:first-child ul {
-  width: 45em;
+  min-width: 45em;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
   padding: 1em;
 }
 
-@media screen and (min-width: 45em) {
+@media screen and (min-width: 64em) {
   form > fieldset:first-child ul {
     display: flex;
     justify-content: space-around;
@@ -73,6 +74,9 @@ form > fieldset:first-child ul {
 
   form > fieldset:first-child li {
     margin: 0.2em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: 10em;
   }
 }
 
