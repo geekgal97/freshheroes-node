@@ -2,10 +2,6 @@
   --primary-green: #37c9a2;
 }
 
-a {
-  display: inline-block;
-}
-
 header > section {
   display: none;
 }
