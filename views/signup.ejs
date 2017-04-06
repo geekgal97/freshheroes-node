@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <% include partials/meta %>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body class="login">
+  <% include components/nav %>
+  <main>
+    <div>
+      <h1>Inschrijven</h1>
+      <form method="post" action="/inloggen">
+        <fieldset>
+          <label for="firstname">Voornaam</label>
+          <input id="firstname" type="firstname" name="firstname" />
+
+          <label for="secondname">Achternaam</label>
+          <input id="secondname" type="secondname" name="secondname" />
+
+          <label for="password">Wachtwoord</label>
+          <input id="password" type="password" name="password" />
+
+          <label for="password">Herhaal wachtwoord</label>
+          <input id="password" type="password" name="password" />
+
+          <p>
+            Door je in te schrijven ga je akkoord met de <a href="/algemene-voorwaarden">algemene voorwaarden</a> en het <a href="/privacybeleid">privacybeleid</a>.
+          </p>
+        </fieldset>
+        <div>
+          <button type="submit">Inschrijven</button>        </div>
+      </form>
+    </div>
+    <aside>
+      <span>Studentproof</p>
+        <p>
+          Je carriere begint met een goede stage.
+          Wij helpen jou bij het vinden van de beste stageplekken!
+        </p>
+
+        <ul>
+          <li>Gratis voor studenten</li>
+          <li>Elke dag een vers aanbod stageplekken</li>
+          <li>Direct op de hoogte van de voortgang van lopende sollicitaties</li>
+          <li>Nieuwsbrief met stageplekken die voor jou interessant zijn</li>
+          <li>Heb je vragen, hulp nodig of een complimentje geven? Stuur Barry een appje naar</li>
+        </ul>
+
+        <p>
+          Heb je vragen, hulp nodig of een complimentje geven? Stuur Barry een appje naar <a href="tel:0683673446">0683673446</a>
+        </p>
+        <a href="/inloggen">Ik heb al een account</a>
+    </aside>
+  </main>
+  <% include partials/footer %>
+</body>
+</html>
