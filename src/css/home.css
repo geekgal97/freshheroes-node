@@ -194,6 +194,7 @@ fieldset:first-child li:nth-child(6) input:checked + label {
 form > div {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
   max-width: var(--wrapper-width);
   margin: 0 auto;
   box-sizing: border-box;
@@ -205,6 +206,11 @@ form > div > div {
   @media screen and (min-width: 57em) {
     order: 1;
   }
+}
+
+.not-found {
+  text-align: center;
+  margin-top: 5em;
 }
 
 form > div > fieldset {
