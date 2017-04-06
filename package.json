@@ -54,7 +54,6 @@
     "gulp-buffer": "0.0.2",
     "gulp-esmangle": "^1.1.1",
     "gulp-imagemin": "^3.2.0",
-    "gulp-jsonminify": "^1.0.0",
     "gulp-nodemon": "^2.2.1",
     "gulp-postcss": "^6.4.0",
     "gulp-sourcemaps": "^2.5.1",
