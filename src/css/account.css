@@ -36,7 +36,7 @@
   line-height: 1.25em;
 
   &::before {
-    background: url('images/checkmark.svg');
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17px' height='15px' viewBox='442 17 17 15'%3E %3Cpolyline id='Line' stroke='%233DDBB1' stroke-width='3' stroke-linecap='square' fill='none' points='445 25 449 29 456 20'%3E%3C/polyline%3E %3C/svg%3E");
     content: "";
     position: absolute;
     left: 0;
@@ -109,7 +109,7 @@
   position: relative;
 
   &::after {
-    background: url('images/arrow-right.svg') no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='12' viewBox='0 0 17 12'%3E %3Cpath fill='none' stroke='%232B9CEC' stroke-linecap='square' stroke-width='2' d='M11,2 L15,6 L11,10 M1,6 L13,6'/%3E %3C/svg%3E ");
     content: "";
     position: absolute;
     width: 1em;
