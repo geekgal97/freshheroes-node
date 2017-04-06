@@ -9,6 +9,9 @@ const serialize = require('form-serialize');
 const render = require('../../lib/render');
 
 (function () {
+  // Close/open filter on window size 💩
+  window.addEventListener('resize', throttle(200, checkFilter));
+
   const initialData = __results__;
   const form = document.querySelector('form');
 
@@ -41,5 +44,13 @@ const render = require('../../lib/render');
 
         update(res.body);
       });
+  }
+
+  function checkFilter() {
+    if (window.innerWidth < 880) {
+      return document.querySelector('details').removeAttribute('open');
+    }
+
+    return document.querySelector('details').setAttribute('open', '');
   }
 })();
