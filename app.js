@@ -20,7 +20,10 @@ const port = process.env.PORT || 3000;
 mongoose.connect('mongodb://localhost/freshheroes', onerror);
 
 express()
-  .use(compression())
+  .use(compression({
+    threshold: 0,
+    filter: () => true
+  }))
   .use(express.static(path.join(__dirname, 'public'), {
     index: false,
     maxage: 604800000
