@@ -207,6 +207,8 @@ form > div {
 form > div > div {
   order: 3;
   flex-basis: 40em;
+  transition: opacity 0.1s ease;
+  will-change: opacity;
   @media screen and (min-width: 57em) {
     order: 1;
   }

@@ -33,6 +33,7 @@ const render = require('../../lib/render');
   }
 
   function fetchData() {
+    document.querySelector('[data-root]').style.opacity = '0.5';
     superagent
       .get('/')
       .set('content-type', 'application/json')
@@ -41,6 +42,8 @@ const render = require('../../lib/render');
         if (err) {
           console.error(err);
         }
+
+        document.querySelector('[data-root]').style.opacity = '1';
 
         update(res.body);
       });
