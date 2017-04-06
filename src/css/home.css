@@ -1,5 +1,6 @@
 :root {
   --wrapper-width: 72em;
+  --text-grey: #b3b3b3;
 }
 
 main {
@@ -40,14 +41,19 @@ form > fieldset:first-child {
 
 form > fieldset:first-child span::after {
   content: '';
+  font-size: 16px;
   width: 1em;
   height: 1em;
   border-radius: 2px;
-  border: 1px solid grey;
-  background-color: #efefef;
+  border: 1px solid #bfbfbf;
+  background-color: #ebebeb;
   position: absolute;
   top: 1em;
   right: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6c23b0;
 }
 
 form > fieldset:first-child input:checked + label span::after {
@@ -86,4 +92,13 @@ form > fieldset:first-child label {
   height: 100%;
   padding: 1em;
   position: relative;
+  border-radius: 2px;
+  box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.06);
+}
+
+form > fieldset:first-child span:first-child {
+  text-transform: uppercase;
+  color: var(--text-grey);
+  font-size: 0.75em;
+  font-weight: 700;
 }
