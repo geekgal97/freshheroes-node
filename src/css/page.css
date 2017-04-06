@@ -2,6 +2,10 @@
   --primary-green: #37c9a2;
 }
 
+main a {
+  display: inline-block;
+}
+
 header > section {
   display: none;
 }
