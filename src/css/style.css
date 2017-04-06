@@ -41,16 +41,31 @@ body {
   margin: 0;
 }
 
+h1,
+h2 {
+  font-weight: normal;
+  line-height: 1.1;
+  margin: 1em 0;
+}
+
 h1 {
   color: #333;
   font-size: 3em;
   font-family: 'Abril Fatface', system-ui;
-  font-weight: normal;
-  line-height: 1.1;
+}
+
+h2 {
+  font-size: 1.5em;
 }
 
 p {
   line-height: 1.5;
+  max-width: 35em;
+  margin: 0 0 0.5em;
+}
+
+a {
+  text-decoration: none;
 }
 
 button,
@@ -125,7 +140,6 @@ footer a {
   color: inherit;
   display: block;
   padding: 1em;
-  text-decoration: none;
 
   &:hover {
     color: #37c9a2;
