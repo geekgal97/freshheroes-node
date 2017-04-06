@@ -20,15 +20,19 @@ self.addEventListener('install', event => event.waitUntil(
 // Hijack fetch return custom response
 // Listen for fetch event
 self.addEventListener('fetch', event => {
+  const request = event.request;
   // Use offline page on failed fetch
   event.respondWith(
-    fetch(event.request)
-      .catch(err => fetchOfflinePage())
+    fetch(request)
+      .catch(err => fetchCoreFile(request.url))
+      .catch(err => fetchCoreFile('/'))
   );
 });
 
-// Use offline page on failed fetch
-function fetchOfflinePage() {
-  return.caches.open('freshheroes-node')
-    .then(cache => cache.match('/'));
+// Use cached assets
+function fetchCoreFile(url) {
+  return caches.open('freshheroes-node')
+    .then(cache => cache.match(url))
+    // If the condition is true
+    .then(response => response ? response : Promise.reject());
 }
