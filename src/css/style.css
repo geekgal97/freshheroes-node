@@ -78,7 +78,7 @@ form label {
   display: block;
 }
 
-form input {
+form input:not([type=radio], [type=checkbox]) {
   border: 1px #e0e0e0 solid;
   padding: 1em;
   transition: border 0.15s ease-in-out;
