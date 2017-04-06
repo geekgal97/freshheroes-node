@@ -1,0 +1,26 @@
+{
+    "name": "Stageplek voor creatieve vogels",
+    "short_name": "Freshheroes",
+    "lang": "nl",
+    "start_url": "/",
+    "display": "fullscreen",
+    "theme_color": "#3DDBB1",
+    "background_color": "#3DDBB1",
+    "icons": [
+        {
+            "src": "/images/icons/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icons/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/icons/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+      ]
+}
