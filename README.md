@@ -40,3 +40,6 @@ To start the app in production mode:
 ```bash
 $ npm start
 ```
+
+## Change log
+* [x] Load stylesheets individually per page
