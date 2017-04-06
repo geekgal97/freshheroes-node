@@ -17,7 +17,7 @@ const render = require('../../lib/render');
 
   let tree = render(initialData);
   let rootNode = createElement(tree);
-  document.querySelector('[data-root]').replaceChild(rootNode, document.querySelector('[data-root] > ul'));
+  document.querySelector('[data-root]').replaceChild(rootNode, document.querySelector('[data-root] > div'));
 
   document.querySelector('button[type=submit]').remove();
 
