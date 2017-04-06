@@ -47,6 +47,11 @@ gulp.task('build:images', () => {
     .pipe(gulp.dest('public/images'));
 });
 
+gulp.task('build:fonts', () => {
+  gulp.src('src/fonts/*')
+    .pipe(gulp.dest('public/fonts'));
+});
+
 gulp.task('nodemon', done => {
   let started = false;
   nodemon({
@@ -73,10 +78,11 @@ gulp.task('browser-sync', ['nodemon'], () => {
   });
 });
 
-gulp.task('build', ['build:js', 'build:css', 'build:images']);
+gulp.task('build', ['build:js', 'build:css', 'build:images', 'build:fonts']);
 
 gulp.task('watch', ['browser-sync'], () => {
   gulp.watch('src/css/**/*.css', ['build:css']);
   gulp.watch('src/images/*', ['build:images']);
-  gulp.watch('src/js/**/*.js', ['build:js']);
+  gulp.watch('src/fonts/*', ['build:fonts']);
+  gulp.watch(['lib/**/*.js', 'src/js/**/*.js'], ['build:js']);
 });

@@ -9,12 +9,15 @@ const serialize = require('form-serialize');
 const render = require('../../lib/render');
 
 (function () {
+  // Close/open filter on window size 💩
+  window.addEventListener('resize', throttle(200, checkFilter));
+
   const initialData = __results__;
   const form = document.querySelector('form');
 
   let tree = render(initialData);
   let rootNode = createElement(tree);
-  document.querySelector('[data-root]').replaceChild(rootNode, document.querySelector('[data-root] > ul'));
+  document.querySelector('[data-root]').replaceChild(rootNode, document.querySelector('[data-root] > div'));
 
   document.querySelector('button[type=submit]').remove();
 
@@ -30,6 +33,7 @@ const render = require('../../lib/render');
   }
 
   function fetchData() {
+    document.querySelector('[data-root]').style.opacity = '0.5';
     superagent
       .get('/')
       .set('content-type', 'application/json')
@@ -39,7 +43,17 @@ const render = require('../../lib/render');
           console.error(err);
         }
 
+        document.querySelector('[data-root]').style.opacity = '1';
+
         update(res.body);
       });
+  }
+
+  function checkFilter() {
+    if (window.innerWidth < 880) {
+      return document.querySelector('details').removeAttribute('open');
+    }
+
+    return document.querySelector('details').setAttribute('open', '');
   }
 })();
