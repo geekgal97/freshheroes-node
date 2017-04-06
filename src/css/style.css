@@ -104,9 +104,8 @@ form input:not([type=radio], [type=checkbox]) {
   }
 }
 
-form label,
-form input {
-  margin-bottom: 0.5em;
+form label {
+  margin-bottom: 1em;
 }
 
 form :last-child {
