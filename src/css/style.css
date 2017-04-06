@@ -181,7 +181,6 @@ header > section img {
   nav ul:nth-of-type(2) {
     display: flex;
     order: 1;
-    text-align: inherit;
     margin-left: 2em;
   }
 
