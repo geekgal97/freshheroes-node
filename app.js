@@ -43,6 +43,7 @@ express()
   .get('/bedrijven', getPageCompanies)
   .get('/over', getPageOver)
   .get('/voorwaarden', getPageTerms)
+  .get('/:company/:vacancy', getVacancy)
   .listen(port, onListening);
 
 function onerror(err) {
@@ -71,6 +72,8 @@ function home(req, res) {
   const query = mongoose.model('vacancy').find();
 
   const {type, size, location, q, categories} = req.query;
+
+  query.populate('company');
 
   if (type) {
     query.where('companyType').in(type);
@@ -196,4 +199,18 @@ function getPageOver(req, res) {
 
 function getPageTerms(req, res) {
   res.render('terms');
+}
+
+function getVacancy(req, res) {
+  mongoose.model('vacancy').findOne({slug: req.params.vacancy}, (err, vacancy) => {
+    if (err) {
+      console.log(err);
+    }
+
+    if (vacancy) {
+      return res.render('vacancy', {vacancy});
+    }
+
+    return res.render('error');
+  });
 }

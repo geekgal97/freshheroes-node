@@ -31,6 +31,7 @@
     "form-serialize": "^0.7.1",
     "mongoose": "^4.9.3",
     "randomstring": "^1.1.5",
+    "slug": "^0.9.1",
     "superagent": "^3.5.2",
     "throttle-debounce": "^1.0.1",
     "vdom-to-html": "^2.3.1",
