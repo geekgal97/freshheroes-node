@@ -1,0 +1,49 @@
+main {
+  padding: 0;
+  margin: 0;
+}
+
+fieldset {
+  border: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+input[type=checkbox],
+input[type=radio] {
+  position: absolute;
+  left: -9999px;
+}
+
+form {
+  width: 100%;
+  position: relative;
+}
+
+form > fieldset:first-child {
+  background-image: url(/images/pattern-superman.png);
+  width: 100%;
+  min-width: 100%;
+  overflow: scroll;
+  position: relative;
+  padding: 0;
+}
+
+form > fieldset:first-child ul {
+  width: 750px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  padding: 1em;
+}
+
+form > fieldset:first-child label {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+}
