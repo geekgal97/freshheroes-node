@@ -26,12 +26,12 @@ self.addEventListener('fetch', event => {
       fetch(request)
       .then(response => cachePage(request, response))
       .catch(err => fetchCoreFile(request.url))
-      .catch(err => fetchCoreFile('/'))
+      .catch(err => fetchCoreFile('/offline'))
     );
   } else {
     fetch(request)
     .catch(err => fetchCoreFile(request.url))
-    .catch(err => fetchCoreFile('/'))
+    .catch(err => fetchCoreFile('/offline'))
   }
 });
 

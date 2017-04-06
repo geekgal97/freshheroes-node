@@ -4,8 +4,16 @@ body {
 
 main {
   background-color: #fff;
+  margin: 2em;
+  margin-top: 8em;
 }
 
-main > a, main > a:visited {
+p > a, p> a:visited {
   color: #37c9a2;
+}
+
+img {
+  width: 50%;
+  bottom: 0;
+  filter: grayscale(100%);
 }
