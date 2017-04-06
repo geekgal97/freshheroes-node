@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
+const slug = require('slug');
 
 const CompanySchema = mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user'
   },
+  slug: String,
   name: String,
   intro: String,
   description: String,
@@ -21,6 +23,13 @@ const CompanySchema = mongoose.Schema({
   timestamps: true
 });
 
+CompanySchema.pre('save', onsave);
+
 const CompanyModel = mongoose.model('company', CompanySchema);
 
 module.exports = CompanyModel;
+
+function onsave(next) {
+  this.slug = slug(this.name);
+  next();
+}

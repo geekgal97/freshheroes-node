@@ -1,8 +1,8 @@
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Abril Fatface';
   src:
-    url('/static/lobster-regular-webfont.woff2') format('woff2'),
-    url('/static/lobster-regular-webfont.woff') format('woff');
+    url('/fonts/abrilfatface-regular.woff2') format('woff2'),
+    url('/fonts/abrilfatface-regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -13,6 +13,10 @@
   --border-grey: #e6e6e6;
   --button-pink: #ef47a1;
   --button-pink-hover: #eb1889;
+}
+
+.fonts-loaded h1 {
+  font-family: 'Abril Fatface', system-ui;
 }
 
 * {
@@ -51,7 +55,6 @@ h2 {
 h1 {
   color: #333;
   font-size: 3em;
-  font-family: 'Abril Fatface', system-ui;
 }
 
 h2 {
@@ -106,10 +109,6 @@ form input:not([type=radio], [type=checkbox]) {
 
 form label {
   margin-bottom: 1em;
-}
-
-form :last-child {
-  margin-bottom: 0;
 }
 
 fieldset {
