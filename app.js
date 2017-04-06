@@ -41,6 +41,8 @@ express()
   .get('/dashboard/stages', authenticate, getCompanyDashboard)
   .get('/studenten', getPageStudents)
   .get('/bedrijven', getPageCompanies)
+  .get('/over', getPageOver)
+  .get('/voorwaarden', getPageTerms)
   .listen(port, onListening);
 
 function onerror(err) {
@@ -186,4 +188,12 @@ function getPageCompanies(req, res) {
   res.render('companies', {
     title: 'Bedrijven'
   });
+}
+
+function getPageOver(req, res) {
+  res.render('about');
+}
+
+function getPageTerms(req, res) {
+  res.render('terms');
 }
