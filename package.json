@@ -28,8 +28,11 @@
     "ejs": "^2.5.6",
     "express": "^4.15.2",
     "express-session": "^1.15.2",
+    "form-serialize": "^0.7.1",
     "mongoose": "^4.9.3",
     "randomstring": "^1.1.5",
+    "superagent": "^3.5.2",
+    "throttle-debounce": "^1.0.1",
     "vdom-to-html": "^2.3.1",
     "virtual-dom": "^2.1.1"
   },
