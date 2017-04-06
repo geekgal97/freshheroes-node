@@ -1,3 +1,7 @@
+:root {
+  --wrapper-width: 72em;
+}
+
 main {
   padding: 0;
   margin: 0;
@@ -16,6 +20,7 @@ ul {
 input[type=checkbox],
 input[type=radio] {
   position: absolute;
+  opacity: 0;
   left: -9999px;
 }
 
@@ -33,12 +38,42 @@ form > fieldset:first-child {
   padding: 0;
 }
 
+form > fieldset:first-child span::after {
+  content: '';
+  width: 1em;
+  height: 1em;
+  border-radius: 2px;
+  border: 1px solid grey;
+  background-color: #efefef;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+
+form > fieldset:first-child input:checked + label span::after {
+  content: '✓';
+}
+
 form > fieldset:first-child ul {
-  width: 750px;
+  width: 45em;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
   padding: 1em;
+}
+
+@media screen and (min-width: 45em) {
+  form > fieldset:first-child ul {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: var(--wrapper-width);
+    margin: 0 auto;
+  }
+
+  form > fieldset:first-child li {
+    margin: 0.2em;
+  }
 }
 
 form > fieldset:first-child label {
@@ -46,4 +81,5 @@ form > fieldset:first-child label {
   width: 100%;
   height: 100%;
   padding: 1em;
+  position: relative;
 }
