@@ -7,9 +7,9 @@ self.addEventListener('install', event => event.waitUntil(
     .then(cache => cache.addAll([
       '/',
       //CSS files
-      'account.css', 'admin.css', 'other.css','style.css',
+      '/account.css', '/admin.css', '/other.css','/style.css',
       //JS files
-      'admin.js', 'home.js', 'index.js'
+      '/admin.js', '/home.js', '/index.js'
     ]))
     //Become the active service worker
     //Prevents the browser from terminating the service worker
