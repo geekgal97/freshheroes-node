@@ -1,3 +1,4 @@
+/* eslint-env browser */
 const throttle = require('throttle-debounce/throttle');
 
 if ('FontFace' in window) {
@@ -8,13 +9,12 @@ if ('FontFace' in window) {
 
 if (document.querySelector('nav')) {
   window.addEventListener('scroll', throttle(100, checkForShadow));
+}
 
-  function checkForShadow() {
-    console.log('check', window.scrollY);
-    if (window.scrollY < 10) {
-      document.querySelector('nav').classList.remove('shadow');
-    } else {
-      document.querySelector('nav').classList.add('shadow');
-    }
+function checkForShadow() {
+  if (window.scrollY < 10) {
+    document.querySelector('nav').classList.remove('shadow');
+  } else {
+    document.querySelector('nav').classList.add('shadow');
   }
 }
