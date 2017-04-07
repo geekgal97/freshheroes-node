@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const express = require('express');
+const spdy = require('spdy');
 const compression = require('compression');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -19,7 +20,15 @@ const port = process.env.PORT || 3000;
 
 mongoose.connect('mongodb://localhost/freshheroes', onerror);
 
-express()
+const options = {
+  key: fs.readFileSync('./key.pem', 'utf8'),
+  cert: fs.readFileSync('./server.crt', 'utf8'),
+  spdy: {
+    protocols: ['h2', 'http/1.1']
+  }
+};
+
+const app = express()
   .use(compression({
     threshold: 0,
     filter: () => true
@@ -46,17 +55,22 @@ express()
   .get('/bedrijven', getPageCompanies)
   .get('/over', getPageOver)
   .get('/voorwaarden', getPageTerms)
-  .get('/:company/:vacancy', getVacancy)
-  .listen(port, onListening);
+  .get('/:company/:vacancy', getVacancy);
+
+spdy.createServer(options, app)
+  .listen(port, err => {
+    if (err) {
+      console.error(err);
+      throw err;
+    } else {
+      console.log(`Listening on port: ${port}.`);
+    }
+  });
 
 function onerror(err) {
   if (err) {
     throw err;
   }
-}
-
-function onListening() {
-  console.log(`Server listening at port ${port}`);
 }
 
 function authenticate(req, res, next) {
