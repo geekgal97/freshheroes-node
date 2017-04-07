@@ -13,6 +13,7 @@
   --border-grey: #e6e6e6;
   --button-pink: #ef47a1;
   --button-pink-hover: #eb1889;
+  --button-purple-hover: #521b85;
 }
 
 .fonts-loaded h1 {
@@ -46,7 +47,8 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-weight: normal;
   line-height: 1.1;
   margin: 1em 0;
@@ -61,6 +63,10 @@ h2 {
   font-size: 1.5em;
 }
 
+h3 {
+  font-size: 1.25em;
+}
+
 p {
   line-height: 1.5;
   max-width: 35em;
@@ -71,6 +77,12 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 button,
 .button {
   background: var(--primary-purple);
@@ -78,6 +90,11 @@ button,
   border-radius: 2px;
   color: #fff;
   padding: 1em;
+  transition: background 0.2s ease-in-out;
+
+  &:hover {
+    background: var(--button-purple-hover);
+  }
 }
 
 main {
@@ -89,6 +106,121 @@ main {
   main {
     margin: 5.125em auto 0;
   }
+}
+
+/* header */
+:root {
+  --primary-green: #3edfb4;
+}
+
+nav {
+  background-color: var(--primary-green);
+  background-image: url('../images/header-pattern.svg');
+  background-size: 300px 300px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  padding: 1em;
+  top: 0;
+}
+
+nav a {
+  padding: 1em;
+  transition: color 0.2s ease-in-out;
+}
+
+nav ul:nth-of-type(2) {
+  order: -1;
+  align-self: flex-end;
+}
+
+nav ul:nth-of-type(2) li {
+  display: inline-block;
+
+  &:hover,
+  &:focus {
+    background-color: #521b85;
+  }
+}
+
+nav ul:nth-of-type(2) li:first-of-type {
+  margin-right: .5em;
+}
+
+nav li {
+  border-bottom: 1px #ebebeb solid;
+}
+
+nav ul a {
+  background: white;
+  color: #999;
+  display: block;
+
+  &:hover,
+  &:focus {
+    background-color: #999;
+    color: #fff;
+  }
+}
+
+header > section {
+  background-color: var(--primary-green);
+  background-image: url('../images/header-pattern.svg');
+  background-size: 300px 300px;
+  box-sizing: border-box;
+  max-height: 480px;
+  padding: 7em;
+}
+
+header > section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header > section img {
+  min-width: 280px;
+}
+
+@media screen and (min-width: 40em) {
+  nav {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  nav ul:nth-of-type(2) {
+    display: flex;
+    order: 1;
+  }
+
+  nav ul:nth-of-type(1) {
+    flex: 1;
+    margin-left: 2em;
+  }
+
+  nav li {
+    border-bottom: 0;
+    float: left;
+  }
+
+  nav ul:nth-of-type(1) a {
+    background: none;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      color: #21755f;
+      background: none;
+    }
+  }
+
+  header > section img {
+    min-width: 550px;
+  }
+
 }
 
 /* forms */

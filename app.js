@@ -52,6 +52,7 @@ const app = express()
   .get('/inschrijven', getSignup)
   .get('/dashboard/stages', authenticate, getCompanyDashboard)
   .get('/studenten', getPageStudents)
+  .get('/offline', getOfflinePage)
   .get('/bedrijven', getPageCompanies)
   .get('/over', getPageOver)
   .get('/voorwaarden', getPageTerms)
@@ -202,6 +203,10 @@ function getPageStudents(req, res) {
   res.render('students', {
     title: 'Studenten'
   });
+}
+
+function getOfflinePage(req, res) {
+  res.render('offline');
 }
 
 function getPageCompanies(req, res) {

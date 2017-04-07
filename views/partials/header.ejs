@@ -1,6 +1,13 @@
 <header>
   <%- include ../components/nav %>
-  <div>
-    <img src="/images/title.svg" alt="Frisse helden creatieve stageplekken" />
-  </div>
+  <section>
+    <picture>
+      <source media="(min-width: 40em)"
+              srcset="/images/logo.svg">
+      <source media="(min-width: 6em)"
+              srcset="/images/logo_mobile.svg">
+      <img src="/images/logo.svg"
+           alt="Fresh Heroes Logo">
+    </picture>
+  </section>
 </header>
