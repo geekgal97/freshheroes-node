@@ -3,6 +3,7 @@
 <head>
   <% include partials/meta %>
   <link rel="stylesheet" href="/home.css">
+  <link rel="stylesheet" href="/call-to-actions.css">
   <script src="/home.js" defer></script>
 </head>
 <body class="home">
@@ -100,6 +101,7 @@
       </div>
     </form>
   </main>
+  <% include components/call-to-action %>
   <% include partials/footer %>
   <script>var __results__ = <%- JSON.stringify(results) %></script>
   <% include partials/service-worker %>
