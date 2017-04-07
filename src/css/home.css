@@ -8,6 +8,10 @@ main {
   margin: 0;
 }
 
+main > form > div p {
+  max-width: none;
+}
+
 select {
   font-size: 1rem;
 }
@@ -196,11 +200,12 @@ form > div {
   max-width: var(--wrapper-width);
   margin: 0 auto;
   box-sizing: border-box;
+  justify-content: space-between;
 }
 
 form > div > div {
   order: 3;
-  flex-basis: 40em;
+  flex-basis: 70%;
   transition: opacity 0.1s ease;
   will-change: opacity;
 
@@ -216,8 +221,8 @@ form > div > div {
 
 form > div > fieldset {
   order: 2;
-  flex-grow: 1;
-  flex-basis: 15em;
+  /*flex-grow: 1;
+  flex-basis: 15em;*/
 }
 
 form > div > fieldset fieldset {
