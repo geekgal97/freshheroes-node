@@ -142,10 +142,9 @@ nav li {
   border-bottom: 1px #ebebeb solid;
 }
 
-nav ul:nth-of-type(1) a {
+nav ul a {
   background: white;
   color: #999;
-  display: block;
 
   &:hover,
   &:focus {
