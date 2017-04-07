@@ -125,6 +125,11 @@ nav {
   z-index: 10;
   padding: 1em;
   top: 0;
+  transition: box-shadow 250ms;
+}
+
+.shadow {
+  box-shadow: 0 0 18px 0 rgba(0,0,0,.2);
 }
 
 nav a {

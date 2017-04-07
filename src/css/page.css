@@ -7,10 +7,6 @@ main a {
   margin-top: 1em;
 }
 
-header > section {
-  display: none;
-}
-
 main {
   display: flex;
   flex-flow: column;
