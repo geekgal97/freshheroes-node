@@ -46,6 +46,7 @@ express()
   .get('/offline', getOfflinePage)
   .get('/bedrijven', getPageCompanies)
   .get('/over', getPageOver)
+  .get('/scholen', getPageSchools)
   .get('/voorwaarden', getPageTerms)
   .get('/:company/:vacancy', getVacancy)
   .listen(port, onListening);
@@ -203,6 +204,10 @@ function getPageCompanies(req, res) {
 
 function getPageOver(req, res) {
   res.render('about');
+}
+
+function getPageSchools(req, res) {
+  res.render('schools');
 }
 
 function getPageTerms(req, res) {
