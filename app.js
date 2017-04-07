@@ -13,7 +13,7 @@ const render = require('./lib/render');
 // Register all models
 const models = path.join(__dirname, '/models');
 fs.readdirSync(models)
-  .filter(file => ~file.search(/^[^\.].*\.js$/))
+  .filter(file => ~file.search(/^[^.].*\.js$/))
   .forEach(file => require(path.join(models, file)));
 
 const port = process.env.PORT || 3000;
@@ -27,6 +27,8 @@ const options = {
     protocols: ['h2', 'http/1.1']
   }
 };
+
+const assetManifest = JSON.parse(fs.readFileSync(path.join(__dirname, 'lib/asset-manifest.json')));
 
 const app = express()
   .use(compression({
@@ -52,7 +54,6 @@ const app = express()
   .get('/inschrijven', getSignup)
   .get('/dashboard/stages', authenticate, getCompanyDashboard)
   .get('/studenten', getPageStudents)
-  .get('/offline', getOfflinePage)
   .get('/bedrijven', getPageCompanies)
   .get('/over', getPageOver)
   .get('/voorwaarden', getPageTerms)
@@ -144,6 +145,7 @@ function home(req, res) {
     if (req.headers['content-type'] && req.headers['content-type'] === 'application/json') {
       return res.json(results);
     }
+    pushPageAssets(res, 'index');
     return res.render('index', {html: toString(render(results)), filterOptions, results});
   }
 
@@ -153,6 +155,7 @@ function home(req, res) {
 }
 
 function getLogin(req, res) {
+  pushPageAssets(res, 'login');
   res.render('login');
 }
 
@@ -196,30 +199,31 @@ function postLogin(req, res) {
 }
 
 function getSignup(req, res) {
+  pushPageAssets(res, 'signup');
   res.render('signup');
 }
 
 function getPageStudents(req, res) {
+  pushPageAssets(res, 'students');
   res.render('students', {
     title: 'Studenten'
   });
 }
 
-function getOfflinePage(req, res) {
-  res.render('offline');
-}
-
 function getPageCompanies(req, res) {
+  pushPageAssets(res, 'companies');
   res.render('companies', {
     title: 'Bedrijven'
   });
 }
 
 function getPageOver(req, res) {
+  pushPageAssets(res, 'about');
   res.render('about');
 }
 
 function getPageTerms(req, res) {
+  pushPageAssets(res, 'term');
   res.render('terms');
 }
 
@@ -230,9 +234,23 @@ function getVacancy(req, res) {
     }
 
     if (vacancy) {
+      pushPageAssets(res, 'vacancy');
       return res.render('vacancy', {vacancy});
     }
 
     return res.render('error');
+  });
+}
+
+function pushPageAssets(res, page) {
+  assetManifest[page].forEach(asset => {
+    if (res.push) {
+      res.push(asset, {
+        request: {accept: '*/*'},
+        response: {'content-type': asset.includes('.css') ? 'text/css' : 'text/javascript'}
+      }).on('error', err => {
+        console.log(err);
+      }).end(fs.readFileSync(path.join(__dirname, 'public', asset)));
+    }
   });
 }
