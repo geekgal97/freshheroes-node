@@ -113,6 +113,7 @@ nav {
   position: fixed;
   z-index: 10;
   padding: 1em;
+  top: 0;
 }
 
 nav a {
