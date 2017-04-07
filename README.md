@@ -97,13 +97,8 @@ To start the app in production mode:
 $ npm start
 ```
 
-## Change log
-
-**Day two (12 hours)**
-* [x] Load stylesheets individually per page
-
-**Day three**
-* [x] Remove SVG icons from fonts directory
+## Editing the code
+Please check out the [contributing guidelines](CONTRIBUTING.md) before you start working on features or bugs
 
 ## Team
 
