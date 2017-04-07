@@ -56,6 +56,7 @@ const app = express()
   .get('/studenten', getPageStudents)
   .get('/bedrijven', getPageCompanies)
   .get('/over', getPageOver)
+  .get('/scholen', getPageSchools)
   .get('/voorwaarden', getPageTerms)
   .get('/:company/:vacancy', getVacancy);
 
@@ -220,6 +221,10 @@ function getPageCompanies(req, res) {
 function getPageOver(req, res) {
   pushPageAssets(res, 'about');
   res.render('about');
+}
+
+function getPageSchools(req, res) {
+  res.render('schools');
 }
 
 function getPageTerms(req, res) {

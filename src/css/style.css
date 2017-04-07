@@ -25,6 +25,15 @@
   font-family: inherit;
 }
 
+select {
+  font-size: 1rem;
+  border: 1px solid #e0e0e0;
+  padding: 1em;
+  transition: border .15s ease-in-out;
+  width: 100%;
+  height: 3em;
+}
+
 input,
 button {
   font-size: inherit;
@@ -125,11 +134,17 @@ nav {
   z-index: 10;
   padding: 1em;
   top: 0;
+  transition: box-shadow 250ms;
+}
+
+.shadow {
+  box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.2);
 }
 
 nav a {
   padding: 1em;
   transition: color 0.2s ease-in-out;
+  border: 1px solid transparent;
 }
 
 nav ul:nth-of-type(2) {

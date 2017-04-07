@@ -7,10 +7,6 @@ main a {
   margin-top: 1em;
 }
 
-header > section {
-  display: none;
-}
-
 main {
   display: flex;
   flex-flow: column;
@@ -56,5 +52,13 @@ main li {
   main article:nth-of-type(3) {
     width: 45%;
     margin-top: 6em;
+  }
+
+  main article:nth-of-type(4) {
+    width: 45%;
+  }
+
+  main button {
+    margin-top: 1em;
   }
 }

@@ -33,11 +33,13 @@ const render = require('../../lib/render');
   }
 
   function fetchData() {
+    const queryString = serialize(form);
+    window.history.pushState({}, '', `/?${queryString}`);
     document.querySelector('[data-root]').style.opacity = '0.5';
     superagent
       .get('/')
       .set('content-type', 'application/json')
-      .query(serialize(form))
+      .query(queryString)
       .end((err, res) => {
         if (err) {
           console.error(err);

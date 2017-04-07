@@ -41,6 +41,14 @@ form {
   position: relative;
 }
 
+form > div p {
+  max-width: none;
+}
+
+form > div > div > div > ul li p:nth-of-type(2) {
+  font-weight: bold;
+}
+
 form > fieldset:first-child {
   background-image: url(/images/pattern-superman.png);
   width: 100%;
@@ -196,11 +204,13 @@ form > div {
   max-width: var(--wrapper-width);
   margin: 0 auto;
   box-sizing: border-box;
+  justify-content: center;
+  padding-top: 4em;
 }
 
 form > div > div {
   order: 3;
-  flex-basis: 40em;
+  flex-basis: 70%;
   transition: opacity 0.1s ease;
   will-change: opacity;
 
