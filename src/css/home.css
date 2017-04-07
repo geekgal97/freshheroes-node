@@ -41,10 +41,6 @@ form {
   position: relative;
 }
 
-form > div {
-  padding-top: 4em;
-}
-
 form > div p {
   max-width: none;
 }
@@ -209,6 +205,7 @@ form > div {
   margin: 0 auto;
   box-sizing: border-box;
   justify-content: center;
+  padding-top: 4em;
 }
 
 form > div > div {
