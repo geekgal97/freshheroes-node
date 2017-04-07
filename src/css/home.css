@@ -229,8 +229,8 @@ form > div > div {
 
 form > div > fieldset {
   order: 2;
-  /*flex-grow: 1;
-  flex-basis: 15em;*/
+  flex-grow: 1;
+  flex-basis: 15em;
 }
 
 form > div > fieldset fieldset {
