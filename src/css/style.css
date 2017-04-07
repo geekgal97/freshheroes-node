@@ -83,6 +83,36 @@ ul {
   padding: 0;
 }
 
+fieldset > span,
+section span {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    right: 19px;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    border-style: solid;
+    border-width: 6px 5px 0;
+    border-color: #999 transparent transparent;
+  }
+}
+
+select {
+  background: #fff;
+  padding: 1em 1.5em;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  color: #4d4d4d;
+  margin-bottom: 0.5em;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
 button,
 .button {
   background: var(--primary-purple);
