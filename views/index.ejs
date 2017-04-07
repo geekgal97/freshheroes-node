@@ -69,9 +69,9 @@
             <summary>Filter</summary>
             <fieldset>
               <legend>Grootte bedrijf</legend>
-              <label><input type="checkbox" name="size[]" value="small" <%= filterOptions.size === 'small' ? 'checked' : false %>/>Klein (< 20)</label>
-              <label><input type="checkbox" name="size[]" value="medium" <%= filterOptions.size === 'medium' ? 'checked' : false %>/>Midden (21 - 100)</label>
-              <label><input type="checkbox" name="size[]" value="large" <%= filterOptions.size === 'large' ? 'checked' : false %>/>Groot (> 100)</label>
+              <label><input type="checkbox" name="size[]" value="small" <%= filterOptions.size.includes('small') ? 'checked' : false %>/>Klein (< 20)</label>
+              <label><input type="checkbox" name="size[]" value="medium" <%= filterOptions.size.includes('medium') ? 'checked' : false %>/>Midden (21 - 100)</label>
+              <label><input type="checkbox" name="size[]" value="large" <%= filterOptions.size.includes('large') ? 'checked' : false %>/>Groot (> 100)</label>
             </fieldset>
             <fieldset>
               <legend>Type bedrijf</legend>
