@@ -49,6 +49,7 @@ express()
   .get('/scholen', getPageSchools)
   .get('/voorwaarden', getPageTerms)
   .get('/:company/:vacancy', getVacancy)
+  .get('/*', get404)
   .listen(port, onListening);
 
 function onerror(err) {
@@ -226,4 +227,8 @@ function getVacancy(req, res) {
 
     return res.render('error');
   });
+}
+
+function get404(req, res) {
+  res.render('error');
 }
