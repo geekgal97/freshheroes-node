@@ -1,0 +1,15 @@
+{
+  "about": ["/style.css", "/page.css"],
+  "companies": ["/style.css", "/page.css"],
+  "dashboard-company": ["/style.css", "/page.css"],
+  "dashboard-student": ["/style.css", "/page.css"],
+  "error": ["/style.css", "/page.css"],
+  "index": ["/style.css", "/main.js", "/home.css", "/call-to-actions.css", "home.js"],
+  "login": ["/style.css", "/main.js"],
+  "offline": ["/style.css", "/page.css"],
+  "schools": ["/style.css", "/page.css"],
+  "signup": ["/style.css", "/page.css"],
+  "students": ["/style.css", "/page.css"],
+  "terms": ["/style.css", "/page.css"],
+  "vacancy": ["/style.css", "/page.css"]
+}
