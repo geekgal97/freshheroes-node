@@ -1,4 +1,4 @@
-section {
+section.cta {
   background: url('/images/pattern-banana-light.png');
   display: flex;
   align-items: center;
@@ -8,31 +8,30 @@ section {
   min-height: 19em;
 }
 
-section > div {
+section.cta > div {
   display: flex;
   flex-direction: row;
 }
 
-section form {
+section.cta form {
   background: #fff;
   max-width: 35em;
   padding: 1.25em;
 }
 
-section h3 {
+section.cta h3 {
   margin: 0;
 }
 
-section p {
+section.cta p {
   color: #999;
   max-width: inherit;
   margin: 0.5em 0 1em;
 }
 
-section span {
+section.cta span {
   display: flex;
   flex-direction: row;
-  position: relative;
   width: 100%;
 
   &::after {
@@ -49,7 +48,7 @@ section span {
   }
 }
 
-section select {
+section.cta select {
   background: #fff;
   padding: 1em 1.5em;
   border: 1px solid #e0e0e0;
@@ -61,27 +60,27 @@ section select {
   -moz-appearance: none;
 }
 
-section select,
-section button {
+section.cta select,
+section.cta button {
   width: 100%;
 }
 
 @media screen and (min-width: 40em) {
-  section span {
+  section.cta span {
     flex: 1;
   }
 
-  section select {
+  section.cta select {
     margin-bottom: 0;
     margin-right: 0.5em;
   }
 
-  section select,
-  section button {
+  section.cta select,
+  section.cta button {
     width: initial;
   }
 
-  section select:first-child {
+  section.cta select:first-child {
     width: 100%;
   }
 }

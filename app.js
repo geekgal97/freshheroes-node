@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const express = require('express');
+const spdy = require('spdy');
 const compression = require('compression');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -12,14 +13,24 @@ const render = require('./lib/render');
 // Register all models
 const models = path.join(__dirname, '/models');
 fs.readdirSync(models)
-  .filter(file => ~file.search(/^[^\.].*\.js$/))
+  .filter(file => ~file.search(/^[^.].*\.js$/))
   .forEach(file => require(path.join(models, file)));
 
 const port = process.env.PORT || 3000;
 
 mongoose.connect('mongodb://localhost/freshheroes', onerror);
 
-express()
+const options = {
+  key: fs.readFileSync('./key.pem', 'utf8'),
+  cert: fs.readFileSync('./server.crt', 'utf8'),
+  spdy: {
+    protocols: ['h2', 'http/1.1']
+  }
+};
+
+const assetManifest = JSON.parse(fs.readFileSync(path.join(__dirname, 'lib/asset-manifest.json')));
+
+const app = express()
   .use(compression({
     threshold: 0,
     filter: () => true
@@ -43,23 +54,27 @@ express()
   .get('/inschrijven', getSignup)
   .get('/dashboard/stages', authenticate, getCompanyDashboard)
   .get('/studenten', getPageStudents)
-  .get('/offline', getOfflinePage)
   .get('/bedrijven', getPageCompanies)
   .get('/over', getPageOver)
   .get('/scholen', getPageSchools)
   .get('/voorwaarden', getPageTerms)
   .get('/:company/:vacancy', getVacancy)
-  .get('/*', get404)
-  .listen(port, onListening);
+  .get('/*', get404);
+
+spdy.createServer(options, app)
+  .listen(port, err => {
+    if (err) {
+      console.error(err);
+      throw err;
+    } else {
+      console.log(`Listening on port: ${port}.`);
+    }
+  });
 
 function onerror(err) {
   if (err) {
     throw err;
   }
-}
-
-function onListening() {
-  console.log(`Server listening at port ${port}`);
 }
 
 function authenticate(req, res, next) {
@@ -126,12 +141,13 @@ function home(req, res) {
     }
 
     const filterOptions = Object.assign({
-      type: [], size: null, location: null, q: null, categories: []
+      type: [], size: [], location: null, q: null, categories: []
     }, req.query);
 
     if (req.headers['content-type'] && req.headers['content-type'] === 'application/json') {
       return res.json(results);
     }
+    pushPageAssets(res, 'index');
     return res.render('index', {html: toString(render(results)), filterOptions, results});
   }
 
@@ -141,6 +157,7 @@ function home(req, res) {
 }
 
 function getLogin(req, res) {
+  pushPageAssets(res, 'login');
   res.render('login');
 }
 
@@ -184,26 +201,26 @@ function postLogin(req, res) {
 }
 
 function getSignup(req, res) {
+  pushPageAssets(res, 'signup');
   res.render('signup');
 }
 
 function getPageStudents(req, res) {
+  pushPageAssets(res, 'students');
   res.render('students', {
     title: 'Studenten'
   });
 }
 
-function getOfflinePage(req, res) {
-  res.render('offline');
-}
-
 function getPageCompanies(req, res) {
+  pushPageAssets(res, 'companies');
   res.render('companies', {
     title: 'Bedrijven'
   });
 }
 
 function getPageOver(req, res) {
+  pushPageAssets(res, 'about');
   res.render('about');
 }
 
@@ -212,6 +229,7 @@ function getPageSchools(req, res) {
 }
 
 function getPageTerms(req, res) {
+  pushPageAssets(res, 'term');
   res.render('terms');
 }
 
@@ -222,6 +240,7 @@ function getVacancy(req, res) {
     }
 
     if (vacancy) {
+      pushPageAssets(res, 'vacancy');
       return res.render('vacancy', {vacancy});
     }
 
@@ -232,3 +251,15 @@ function getVacancy(req, res) {
 function get404(req, res) {
   res.render('error');
 }
+
+function pushPageAssets(res, page) {
+  assetManifest[page].forEach(asset => {
+    if (res.push) {
+      res.push(asset, {
+        request: {accept: '*/*'},
+        response: {'content-type': asset.includes('.css') ? 'text/css' : 'text/javascript'}
+      }).on('error', err => {
+        console.log(err);
+      }).end(fs.readFileSync(path.join(__dirname, 'public', asset)));
+    }
+  });
