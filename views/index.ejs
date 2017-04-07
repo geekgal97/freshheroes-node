@@ -82,18 +82,21 @@
             </fieldset>
             <fieldset>
               <legend>Locatie</legend>
-              <select name="location">
-                <option value="">Selecteer een stad</option>
-                <option value="Amsterdam" <%= filterOptions.location === 'Amsterdam' ? 'selected' : false %>>Amsterdam</option>
-                <option value="Amsterdam-Duivendrecht" <%= filterOptions.location === 'Amsterdam-Duivendrecht' ? 'selected' : false %>>Amsterdam-Duivendrecht</option>
-                <option value="Amsterdam-Zuidoost" <%= filterOptions.location === 'Amsterdam-Zuidoost' ? 'selected' : false %>>Amsterdam-Zuidoost</option>
-                <option value="Eindhoven" <%= filterOptions.location === 'Eindhoven' ? 'selected' : false %>>Eindhoven</option>
-                <option value="Haarlem" <%= filterOptions.location === 'Haarlem' ? 'selected' : false %>>Haarlem</option>
-                <option value="Heerenveen" <%= filterOptions.location === 'Heerenveen' ? 'selected' : false %>>Heerenveen</option>
-                <option value="Rotterdam" <%= filterOptions.location === 'Rotterdam' ? 'selected' : false %>>Rotterdam</option>
-                <option value="Soest" <%= filterOptions.location === 'Soest' ? 'selected' : false %>>Soest</option>
-                <option value="Utrecht" <%= filterOptions.location === 'Utrecht' ? 'selected' : false %>>Utrecht</option>
-              </select>
+              <span>
+                <span></span>
+                <select name="location">
+                  <option value="">Selecteer een stad</option>
+                  <option value="Amsterdam" <%= filterOptions.location === 'Amsterdam' ? 'selected' : false %>>Amsterdam</option>
+                  <option value="Amsterdam-Duivendrecht" <%= filterOptions.location === 'Amsterdam-Duivendrecht' ? 'selected' : false %>>Amsterdam-Duivendrecht</option>
+                  <option value="Amsterdam-Zuidoost" <%= filterOptions.location === 'Amsterdam-Zuidoost' ? 'selected' : false %>>Amsterdam-Zuidoost</option>
+                  <option value="Eindhoven" <%= filterOptions.location === 'Eindhoven' ? 'selected' : false %>>Eindhoven</option>
+                  <option value="Haarlem" <%= filterOptions.location === 'Haarlem' ? 'selected' : false %>>Haarlem</option>
+                  <option value="Heerenveen" <%= filterOptions.location === 'Heerenveen' ? 'selected' : false %>>Heerenveen</option>
+                  <option value="Rotterdam" <%= filterOptions.location === 'Rotterdam' ? 'selected' : false %>>Rotterdam</option>
+                  <option value="Soest" <%= filterOptions.location === 'Soest' ? 'selected' : false %>>Soest</option>
+                  <option value="Utrecht" <%= filterOptions.location === 'Utrecht' ? 'selected' : false %>>Utrecht</option>
+                </select>
+              </span>
             </fieldset>
           </details>
           <button type="submit">Zoeken</button>

@@ -32,7 +32,6 @@ section.cta p {
 section.cta span {
   display: flex;
   flex-direction: row;
-  position: relative;
   width: 100%;
 
   &::after {
