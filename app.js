@@ -263,3 +263,4 @@ function pushPageAssets(res, page) {
       }).end(fs.readFileSync(path.join(__dirname, 'public', asset)));
     }
   });
+}
