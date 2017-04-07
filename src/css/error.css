@@ -1,0 +1,23 @@
+body {
+  background-image: url('images/pattern-trol.png')
+}
+
+main {
+  background-color: #fff;
+  margin: 2em;
+  margin-top: 8em;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+p > a, p> a:visited {
+  color: #37c9a2;
+}
+
+img {
+  margin-top: 2em;
+}

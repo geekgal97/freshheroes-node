@@ -58,7 +58,8 @@ const app = express()
   .get('/over', getPageOver)
   .get('/scholen', getPageSchools)
   .get('/voorwaarden', getPageTerms)
-  .get('/:company/:vacancy', getVacancy);
+  .get('/:company/:vacancy', getVacancy)
+  .get('/*', get404);
 
 spdy.createServer(options, app)
   .listen(port, err => {
@@ -245,6 +246,10 @@ function getVacancy(req, res) {
 
     return res.render('error');
   });
+}
+
+function get404(req, res) {
+  res.render('error');
 }
 
 function pushPageAssets(res, page) {
