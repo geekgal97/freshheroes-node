@@ -45,6 +45,11 @@ form > div p {
   max-width: none;
 }
 
+form > div > div > div ul > li {
+  border-bottom: solid 8px rgba(191, 191, 191, 0.4);
+  padding-bottom: 1em;
+}
+
 form > div > div > div > ul li p:nth-of-type(2) {
   font-weight: bold;
 }
