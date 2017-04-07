@@ -140,7 +140,7 @@ function home(req, res) {
     }
 
     const filterOptions = Object.assign({
-      type: [], size: null, location: null, q: null, categories: []
+      type: [], size: [], location: null, q: null, categories: []
     }, req.query);
 
     if (req.headers['content-type'] && req.headers['content-type'] === 'application/json') {
