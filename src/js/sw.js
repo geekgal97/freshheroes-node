@@ -6,8 +6,12 @@ self.addEventListener('install', event => event.waitUntil(
     // Add files to cache object
     .then(cache => cache.addAll([
       '/',
+      //Offline page
+      '/offline',
+      '/offline.css',
+      '/images/without_internet.mp4',
       //CSS files
-      '/account.css', '/style.css', '/home.css', '/header.css', '/offline.css', '/page.css',
+      '/account.css', '/style.css', '/home.css', '/page.css',
       //JS files
       '/home.js', '/main.js'
     ]))
