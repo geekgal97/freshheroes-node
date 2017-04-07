@@ -46,7 +46,7 @@ express()
   .get('/offline', getOfflinePage)
   .get('/bedrijven', getPageCompanies)
   .get('/over', getPageOver)
-  .get('/schools', getPageSchools)
+  .get('/scholen', getPageSchools)
   .get('/voorwaarden', getPageTerms)
   .get('/:company/:vacancy', getVacancy)
   .listen(port, onListening);
