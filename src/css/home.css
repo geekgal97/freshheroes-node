@@ -81,7 +81,7 @@ fieldset:first-child ul {
 @media screen and (min-width: 64em) {
   fieldset:first-child ul {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     width: 100%;
     max-width: var(--wrapper-width);
     margin: 0 auto;
@@ -208,7 +208,7 @@ form > div {
   max-width: var(--wrapper-width);
   margin: 0 auto;
   box-sizing: border-box;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 form > div > div {
