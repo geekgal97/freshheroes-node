@@ -8,10 +8,6 @@ main {
   margin: 0;
 }
 
-main > form > div p {
-  max-width: none;
-}
-
 select {
   font-size: 1rem;
 }
@@ -43,6 +39,18 @@ input[type=checkbox]:focus {
 form {
   width: 100%;
   position: relative;
+}
+
+form > div {
+  padding-top: 4em;
+}
+
+form > div p {
+  max-width: none;
+}
+
+form > div > div > div > ul li p:nth-of-type(2) {
+  font-weight: bold;
 }
 
 form > fieldset:first-child {
