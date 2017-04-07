@@ -56,7 +56,9 @@ main li {
 
   main article:nth-of-type(4) {
     width: 45%;
-    /*dirty fix*/
-    margin-top: -15em;
+  }
+
+  main button {
+    margin-top: 1em;
   }
 }
