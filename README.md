@@ -4,6 +4,8 @@
   <br>
   Frisse Helden
 </h1>
+
+
 > Proof of Concept
 
 ## Overview
@@ -65,7 +67,7 @@ $ npm start
 ## Team
 
 ![Rijk van Zanten](https://avatars0.githubusercontent.com/u/9141017?v=3&s=460) | ![Lars Schuitema](https://avatars1.githubusercontent.com/u/8817968?v=3&s=460) | ![Danny de Vries](https://avatars1.githubusercontent.com/u/22084444?v=3&s=460) | ![Mirza van Meerwijk](https://avatars2.githubusercontent.com/u/12242967?v=3&s=460) | ![Merlijn Vos](https://avatars1.githubusercontent.com/u/9060226?v=3&s=460) | ![Berend Pronk](https://avatars3.githubusercontent.com/u/12401943?v=3&s=460)
----|---|---|---
+---|---|---|---|---|---
 [Rijk van Zanten](https://github.com/rijkvanzanten) | [Lars Schuitema](https://github.com/larsdouweschuitema) | [Danny de Vries](https://github.com/dandevri) | [Mirza van Meerwijk](https://github.com/Mimaaa) | [Merlijn Vos](https://github.com/Murderlon) | [Berend Pronk](https://github.com/berendpronk)
 
 ## License
