@@ -57,6 +57,57 @@ Frisse Helden is a proof of concept implementation of the [Fresh Heroes site](ht
   * [x] MongoDB management with Mongoose
   * [x] `bcrypt` password encryption on new user save
 
+### Statistics
+Reports generated through Lighthouse and Chrome DevTools Audit
+
+**freshheroes.com**
+* App can not load on offline/flaky connections
+  * Doesn't registers a Service Worker
+  * Doesn't respond with a 200 when offline
+* Page load performance is decent
+  * (62) First meaningful paint: 3424.6ms (target: 1,600ms)
+  * (72) Time To Interactive (alpha): 3485.8ms (target: 5,000ms)
+* User can not be prompted to Add to Homescreen
+* Installed web app will not launch with custom splash screen
+* Using deprecated prefixes
+* Accessibility
+  * Background and foreground colors do not have a sufficient contrast ratio (58 elements)
+  * Not every form element has a label (4 elements)
+* 80-90% of the CSS is not used on every page (~1400 CSS rules)
+* Avoids an excessive DOM size: 453 nodes (target: 1,500 nodes)
+
+**Now**
+* [x] Service workers used
+* [x] Fast page load performance
+  * (100) First meaningful paint: 384.9ms (target: 1,600ms)
+  * (100) Perceptual Speed Index: 677 (target: 1,250)
+    * First Visual Change: 461ms
+    * Last Visual Change: 1304ms
+  * (100) Estimated Input Latency: 16ms (target: 50ms)
+  * (100) Time To Interactive (alpha): 845.3ms (target: 5,000ms)
+* [x] Network connection is secure
+  * [x] Uses HTTPS
+  * [x] Redirects HTTP traffic to HTTPS
+* [x] Installed web app will launch with custom splash screen
+  * [x] Manifest exists
+  * [x] Contains name
+  * [x] Contains background_color
+  * [x] Contains theme_color
+  * [x] Manifest contains icons at least 192px
+  * [x] Has a <meta name="theme-color"> tag
+* [x] Site is progressively enhanced
+  * [x] Contains some content when JavaScript is not available
+* [x] Design is mobile-friendly
+  * [x] Has a <meta name="viewport"> tag with width or initial-scale
+  * [x] Content is sized correctly for the viewport
+* [x] Using modern offline features
+  * [x] Avoids Application Cache
+  * [x] Avoids WebSQL DB
+* [x] Using modern protocols
+  * [x] Uses HTTPS
+* From 1340 rules (82%) of CSS not used to 5 rules (10%)
+* ~150 nodes (maximum allowed per page: 1500 nodes)
+
 ## Getting started
 ```bash
 $ git clone https://github.com/rijkvanzanten/freshheroes-node.git

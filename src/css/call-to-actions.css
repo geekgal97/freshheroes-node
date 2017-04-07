@@ -1,5 +1,5 @@
 section {
-  background: url('../images/banana-pattern.png');
+  background: url('/images/pattern-banana-light.png');
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,54 +8,79 @@ section {
   min-height: 19em;
 }
 
-section > div {
+section.cta > div {
   display: flex;
   flex-direction: row;
 }
 
-section form {
+section.cta form {
   background: #fff;
   max-width: 35em;
   padding: 1.25em;
 }
 
-section h3 {
+section.cta h3 {
   margin: 0;
 }
 
-section p {
+section.cta p {
   color: #999;
   max-width: inherit;
   margin: 0.5em 0 1em;
 }
 
-section span {
+section.cta span {
   display: flex;
   flex-direction: row;
   width: 100%;
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 23px;
+    right: 19px;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    border-style: solid;
+    border-width: 6px 5px 0;
+    border-color: #999 transparent transparent;
+  }
 }
 
-section select,
-section button {
+section.cta select {
+  background: #fff;
+  padding: 1em 1.5em;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  color: #4d4d4d;
+  margin-bottom: 0.5em;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+section.cta select,
+section.cta button {
   width: 100%;
 }
 
 @media screen and (min-width: 40em) {
-  section span {
+  section.cta span {
     flex: 1;
   }
 
-  section select {
+  section.cta select {
     margin-bottom: 0;
     margin-right: 0.5em;
   }
 
-  section select,
-  section button {
+  section.cta select,
+  section.cta button {
     width: initial;
   }
 
-  section select:first-child {
+  section.cta select:first-child {
     width: 100%;
   }
 }
