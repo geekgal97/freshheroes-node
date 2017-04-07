@@ -11,11 +11,6 @@
 ## Overview
 Frisse Helden is a proof of concept implementation of the [Fresh Heroes site](http://freshheroes.com) on a NodeJS stack.
 
-
-Polls is a simple web-based tool which lets you create a poll to a share-able link. It allows other users to view and vote on the poll and see the results in real-time.
-
-The app was built using some of the latest (and greatest) in web technology while also keeping the best practices of progressive enhancement in mind.
-
 ## Getting started
 ```bash
 $ git clone https://github.com/rijkvanzanten/freshheroes-node.git
