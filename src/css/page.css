@@ -2,11 +2,11 @@
   --primary-green: #37c9a2;
 }
 
-a {
+main a {
   display: inline-block;
 }
 
-header > div {
+header > section {
   display: none;
 }
 
